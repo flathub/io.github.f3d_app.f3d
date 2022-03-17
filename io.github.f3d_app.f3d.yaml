@@ -219,7 +219,7 @@ modules:
       - -D3RDPARTY_TK_INCLUDE_DIR:PATH=/app/include
     sources:
       - type: git
-        url: git://github.com/Open-Cascade-SAS/OCCT.git
+        url: https://github.com/Open-Cascade-SAS/OCCT.git
         tag: V7_6_0
         commit: 80ffc5f84dae96de6ed093d3e5d2466a9e368b27
         x-checker-data:
