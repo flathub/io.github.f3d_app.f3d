@@ -45,8 +45,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_0.tar.gz
-        sha256: 71ea4747e7362e27e925b67d1dea868bebedd599903f371ccd73949b6a805493
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_1.tar.gz
+        sha256: 92552458f35c7e58128ce1bfc2831abf901cc142ea0fdd2b056311e4452db7bf
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -219,7 +219,7 @@ modules:
       - -D3RDPARTY_TK_INCLUDE_DIR:PATH=/app/include
     sources:
       - type: git
-        url: git://github.com/Open-Cascade-SAS/OCCT.git
+        url: https://github.com/Open-Cascade-SAS/OCCT.git
         tag: V7_6_0
         commit: 80ffc5f84dae96de6ed093d3e5d2466a9e368b27
         x-checker-data:
