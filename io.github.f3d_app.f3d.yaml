@@ -220,8 +220,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_6_1
-        commit: d2abb6d844231cb8f29be6894440874a4700e4a5
+        tag: V7_6_2
+        commit: bb368e271e24f63078129283148ce83db6b9670a
         x-checker-data:
           type: git
           tag-pattern: ^(V[\d._]+)$
