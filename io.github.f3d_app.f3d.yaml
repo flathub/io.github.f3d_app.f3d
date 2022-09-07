@@ -45,8 +45,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_1.tar.gz
-        sha256: 92552458f35c7e58128ce1bfc2831abf901cc142ea0fdd2b056311e4452db7bf
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_2.tar.gz
+        sha256: 6b97168ce262d7f9fa67355171e8e1899989046bf70ca5735341b0872760af9a
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -258,8 +258,8 @@ modules:
       - install -Dm644 resources/$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v1.2.1.tar.gz
-        sha256: 0d72cc465af1adefdf71695481ceea95d4a94ee9e00125bc98c9f32b14ac2bf4
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v1.3.0.tar.gz
+        sha256: 44292c023af6b59cf882e1e02e8049944bd6843a7303c364a2dfe03ae9fcb018
         x-checker-data:
           type: anitya
           project-id: 224911
