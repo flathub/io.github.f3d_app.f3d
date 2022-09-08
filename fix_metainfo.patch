@@ -1,7 +1,7 @@
 diff -ruN a/resources/io.github.f3d_app.f3d.metainfo.xml b/resources/io.github.f3d_app.f3d.metainfo.xml
---- a/resources/io.github.f3d_app.f3d.metainfo.xml	2022-02-02 20:04:36.896393163 +0100
-+++ b/resources/io.github.f3d_app.f3d.metainfo.xml	2022-02-02 20:06:02.792394210 +0100
-@@ -43,4 +43,10 @@
+--- a/resources/io.github.f3d_app.f3d.metainfo.xml	2022-09-07 12:17:51.000000000 +0200
++++ b/resources/io.github.f3d_app.f3d.metainfo.xml	2022-09-08 22:58:23.193467450 +0200
+@@ -43,4 +43,11 @@
          </screenshot>
      </screenshots>
      <content_rating type="oars-1.1"/>
