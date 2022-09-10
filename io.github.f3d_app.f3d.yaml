@@ -149,6 +149,7 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_RenderingOpenGL2=YES
       - -DVTK_MODULE_ENABLE_VTK_RenderingVolumeOpenGL2=YES
       - -DVTK_MODULE_ENABLE_VTK_jsoncpp=YES
+      - -DVTK_MODULE_ENABLE_VTK_TestingCore=YES
     sources:
       - type: archive
         url: https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz
