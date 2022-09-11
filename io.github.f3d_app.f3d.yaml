@@ -101,7 +101,6 @@ modules:
             url: https://invent.kde.org/frameworks/extra-cmake-modules.git
             tag: v5.98.0
         # Attempt to build from source, but ISPC need glic-32bit which make things complicated.
-        # OSPRay need ISPC 1.9.2.
       - name: ISPC
         buildsystem: simple
         build-commands:
@@ -110,14 +109,6 @@ modules:
           - type: archive
             url: https://github.com/ispc/ispc/releases/download/v1.18.0/ispc-v1.18.0-linux.tar.gz
             sha256: 6c379bb97962e9de7d24fd48b3f7e647dc42be898e9d187948220268c646b692
-      #- name: ISPC
-        #buildsystem: simple
-        #build-commands:
-          #- cp bin/ispc /app/bin/
-        #sources:
-          #- type: archive
-            #url: https://github.com/ispc/ispc/releases/download/v1.12.0/ispc-v1.12.0b-linux.tar.gz
-            #sha256: 7a2bdd5fff5c1882639cfbd66bca31dbb68c7177f3013e80b0813a37fe0fdc23
       - name: glfw
         buildsystem: cmake-ninja
         config-opts:
@@ -162,67 +153,11 @@ modules:
           - type: archive
             url: https://github.com/openvkl/openvkl/releases/download/v0.13.0/openvkl-0.13.0.x86_64.linux.tar.gz
             sha256: 8789334cf354105426151146b4c6de8968694ad781d7c24052a8df50ea4f11e0
-    #builddir: true
-    #config-opts:
-      #- -DOSPRAY_ENABLE_APPS_BENCHMARK:BOOL=OFF
-      #- -DOSPRAY_ENABLE_APPS_EXAMPLES:BOOL=OFF
-      #- -DOSPRAY_ENABLE_APPS_TUTORIALS:BOOL=OFF
-      #- -DOSPRAY_ENABLE_APPS_TESTING:BOOL=OFF
-      #- -DOSPRAY_APPS_TESTING=OFF
-    #sources:
-      #- type: archive
-        #url: https://github.com/ospray/ospray/archive/refs/tags/v2.1.0.tar.gz
-        #sha256: ab38106beac3868cb39ef35f5564d51277641ecd982afc45e463aada6a124502
-    #modules:
-      #- name: ospcommon
-        #buildsystem: cmake
-        #builddir: true
-        ##config-opts:
-          ##- -DBUILD_TESTING:BOOL=OFF
-        #sources:
-          #- type: archive
-            #url: https://github.com/ospray/ospcommon/archive/refs/tags/v1.3.1.tar.gz
-            #sha256: 1c043c4a09e68fb7319db61f28a5830fc09f1457b24155a42b5f7c6421bcca73
-      #- name: rkcommon
-        #buildsystem: cmake
-        #builddir: true
-        #config-opts:
-          #- -DBUILD_TESTING:BOOL=OFF
-        #sources:
-          #- type: archive
-            #url: https://github.com/ospray/rkcommon/archive/refs/tags/v1.9.0.tar.gz
-            #sha256: b68aa02ef44c9e35c168f826a14802bb5cc6a9d769ba4b64b2c54f347a14aa53
-      #- name: ISPC-new
-        #buildsystem: simple
-        #build-commands:
-          #- rm /app/bin/ispc
-          #- cp bin/ispc /app/bin/
-        #sources:
-          #- type: archive
-            #url: https://github.com/ispc/ispc/releases/download/v1.18.0/ispc-v1.18.0-linux.tar.gz
-            #sha256: 6c379bb97962e9de7d24fd48b3f7e647dc42be898e9d187948220268c646b692
-        # Failed to compile from source version 0.13.0
-      #- name: openvkl
-        #buildsystem: simple
-        #build-commands:
-          #- cp -rn bin/* /app/bin/
-          #- cp -rn include/* /app/include/
-          #- cp -rn lib/* /app/lib/
-        #sources:
-          #- type: archive
-            #url: https://github.com/openvkl/openvkl/releases/download/v0.13.0/openvkl-0.13.0.x86_64.linux.tar.gz
-            #sha256: 8789334cf354105426151146b4c6de8968694ad781d7c24052a8df50ea4f11e0
-      #- name: openvkl
-        #buildsystem: cmake
-        #builddir: true
-        #config-opts:
-          #- -DBUILD_EXAMPLES:BOOL=OFF
-          #- -DBUILD_BENCHMARKS:BOOL=OFF
-          #- -DBUILD_TESTING:BOOL=OFF
-        #sources:
-          #- type: archive
-            #url: https://github.com/openvkl/openvkl/archive/refs/tags/v0.13.0.tar.gz
-            #sha256: 974608259e3a5d8e29d2dfe81c6b2b1830aadeb9bbdc87127f3a7c8631e9f1bd
+
+  - name: g++
+    buildsystem: simple
+    build-commands:
+      - g++ --version
 
     # When VTK update, update OSPRay, Embree, TBB, ISPC, and OpenImageDenoise too.
     # Needed OSPRay version can be found in vtk/Rendering/RayTracing/CMakeLists.txt
@@ -362,7 +297,7 @@ modules:
 
     # Move config.json as upstream request.
   - name: F3D
-    buildsystem: cmake-ninja
+    buildsystem: cmake
     config-opts:
       - -DCMAKE_INSTALL_PREFIX:PATH=/app
       - -DCMAKE_BUILD_TYPE:STRING=Release
