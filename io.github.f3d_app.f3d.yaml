@@ -158,6 +158,7 @@ modules:
     buildsystem: simple
     build-commands:
       - g++ --version
+      - locate stdc++fs
 
     # When VTK update, update OSPRay, Embree, TBB, ISPC, and OpenImageDenoise too.
     # Needed OSPRay version can be found in vtk/Rendering/RayTracing/CMakeLists.txt
@@ -295,6 +296,8 @@ modules:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
+
+
     # Move config.json as upstream request.
   - name: F3D
     buildsystem: cmake
@@ -323,3 +326,5 @@ modules:
           url-template: https://github.com/f3d-app/f3d/archive/refs/tags/v$version.tar.gz
       - type: patch
         path: fix_metainfo.patch
+      - type: patch
+        path: remove_stdc++fs.patch
