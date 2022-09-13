@@ -154,12 +154,6 @@ modules:
             url: https://github.com/openvkl/openvkl/releases/download/v0.13.0/openvkl-0.13.0.x86_64.linux.tar.gz
             sha256: 8789334cf354105426151146b4c6de8968694ad781d7c24052a8df50ea4f11e0
 
-  - name: g++
-    buildsystem: simple
-    build-commands:
-      - g++ --version
-      - locate stdc++fs
-
     # When VTK update, update OSPRay, Embree, TBB, ISPC, and OpenImageDenoise too.
     # Needed OSPRay version can be found in vtk/Rendering/RayTracing/CMakeLists.txt
     # VTK 9.1 request ospray 2.1
@@ -295,8 +289,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-
-
 
     # Move config.json as upstream request.
   - name: F3D
