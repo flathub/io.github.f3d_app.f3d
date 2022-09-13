@@ -201,8 +201,8 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_RenderingExternal=YES
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz
-        sha256: 8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96
+        url: https://www.vtk.org/files/release/9.2/VTK-9.2.0.rc2.tar.gz
+        sha256: 276f35541a46ef5963ae6667ee60b9cb19c9dc5cb28ae68db71fd8577620b0fc
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -295,13 +295,13 @@ modules:
     buildsystem: cmake
     config-opts:
       - -DCMAKE_INSTALL_PREFIX:PATH=/app
-      - -DCMAKE_BUILD_TYPE:STRING=Release
       - -DBUILD_TESTING:BOOL=OFF
       - -DF3D_INSTALL_DEFAULT_CONFIGURATION_FILE:BOOL=ON
       - -DF3D_MODULE_EXODUS:BOOL=ON
-      - -DF3D_MODULE_RAYTRACING:BOOL=ON
+      - -DF3D_MODULE_RAYTRACING:BOOL=OFF
       - -DF3D_MODULE_OCCT:BOOL=ON
       - -DF3D_MODULE_ASSIMP:BOOL=ON
+      - -DF3D_MODULE_ALEMBIC:BOOL=ON
     post-install:
       - mv /app/etc/f3d/config.json /app/config.json
       - install -Dm644 resources/logo.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg
