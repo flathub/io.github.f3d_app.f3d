@@ -290,6 +290,33 @@ modules:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
+  - name: Imath
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DBUILD_TESTING:BOOL=OFF
+    sources:
+      - type: git
+        url: https://github.com/AcademySoftwareFoundation/Imath.git
+        tag: v3.1.5
+        x-checker-data:
+          type: git
+          tag-pattern: ^(v[\d.]+)$
+
+  - name: Alembic
+    buildsystem: cmake
+    #config-opts:
+      #- -DASSIMP_BUILD_ASSIMP_TOOLS:BOOL=NO
+      #- -DASSIMP_BUILD_TESTS:BOOL=NO
+    sources:
+      - type: archive
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.3.tar.gz
+        sha256: b0bc74833bff118a869e81e6acb810a58797e77ef63143954b2f8e817c7f65cb
+        x-checker-data:
+          type: anitya
+          project-id: 13980
+          stable-only: true
+          url-template: https://github.com/alembic/alembic/archive/refs/tags/$version.tar.gz
+
     # Move config.json as upstream request.
   - name: F3D
     buildsystem: cmake
