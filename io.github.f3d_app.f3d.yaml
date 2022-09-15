@@ -45,8 +45,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_1.tar.gz
-        sha256: 92552458f35c7e58128ce1bfc2831abf901cc142ea0fdd2b056311e4452db7bf
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_13_2.tar.gz
+        sha256: 6b97168ce262d7f9fa67355171e8e1899989046bf70ca5735341b0872760af9a
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -56,6 +56,19 @@ modules:
         # OSPRay 1.8.0 need old version of TBB,
         # Could not build from source with make for some reason.
         # Only new TBB use CMake, we can build from source when OSPRay updates.
+  #- name: TBB
+    #buildsystem: simple
+    ##no-autogen: true
+    ##builddir: true
+    #build-commands:
+      #- make
+      #- cd build/linux* && ls -l
+      ##- ls -l
+      #- stop
+    #sources:
+      #- type: archive
+        #url: https://github.com/oneapi-src/oneTBB/archive/v2020.2.tar.gz
+        #sha256: 4804320e1e6cbe3a5421997b52199e3c1a3829b2ecb6489641da4b8e32faf500
   - name: TBB
     buildsystem: cmake
     builddir: true
@@ -66,7 +79,8 @@ modules:
       - type: patch
         path: tbb_cmake.patch
 
-    # OSPRay 1.8.0 use Embree 3.4.0
+    # OSPRay 2.1.0 use Embree 3.9.0
+    # ospray/scripts/superbuild/CMakeLists.txt
   - name: Embree
     buildsystem: cmake-ninja
     config-opts:
@@ -77,25 +91,24 @@ modules:
       #- -DEMBREE_TBBMALLOC_LIBRARY=/app/lib
     sources:
       - type: archive
-        url: https://github.com/embree/embree/archive/refs/tags/v3.8.0.tar.gz
-        sha256: 40cbc90640f63c318e109365d29aea00003e4bd14aaba8bb654fc1010ea5753a
+        url: https://github.com/embree/embree/archive/refs/tags/v3.9.0.tar.gz
+        sha256: 53855e2ceb639289b20448ae9deab991151aa5f0bc7f9cc02f2af4dd6199d5d1
     modules:
       - name: extra-cmake-modules
         buildsystem: cmake-ninja
         sources:
           - type: git
             url: https://invent.kde.org/frameworks/extra-cmake-modules.git
-            tag: v5.87.0
+            tag: v5.98.0
         # Attempt to build from source, but ISPC need glic-32bit which make things complicated.
-        # OSPRay need ISPC 1.9.2.
       - name: ISPC
         buildsystem: simple
         build-commands:
           - cp bin/ispc /app/bin/
         sources:
           - type: archive
-            url: https://github.com/ispc/ispc/releases/download/v1.12.0/ispc-v1.12.0b-linux.tar.gz
-            sha256: 7a2bdd5fff5c1882639cfbd66bca31dbb68c7177f3013e80b0813a37fe0fdc23
+            url: https://github.com/ispc/ispc/releases/download/v1.18.0/ispc-v1.18.0-linux.tar.gz
+            sha256: 6c379bb97962e9de7d24fd48b3f7e647dc42be898e9d187948220268c646b692
       - name: glfw
         buildsystem: cmake-ninja
         config-opts:
@@ -109,18 +122,52 @@ modules:
             url: https://github.com/glfw/glfw/releases/download/3.3.4/glfw-3.3.4.zip
             sha256: bbd2c42c660b725e9755eb417e40b373f0d4c03138c9b2e210d02cd308bd99cd
 
+    # Can't build from source
+  - name: OSPRay
+    buildsystem: simple
+    build-commands:
+      - cp -rn bin/* /app/bin/
+      - cp -rn include/* /app/include/
+      - cp -rn lib/* /app/lib/
+    sources:
+      - type: archive
+        url: https://github.com/ospray/ospray/releases/download/v2.1.0/ospray-2.1.0.x86_64.linux.tar.gz
+        sha256: 23ac9ab5e279392499c7598b4513c4c717708778c311c35681e1b90e95512790
+    modules:
+      - name: ospcommon
+        buildsystem: cmake
+        builddir: true
+        #config-opts:
+          #- -DBUILD_TESTING:BOOL=OFF
+        sources:
+          - type: archive
+            url: https://github.com/ospray/ospcommon/archive/refs/tags/v1.3.1.tar.gz
+            sha256: 1c043c4a09e68fb7319db61f28a5830fc09f1457b24155a42b5f7c6421bcca73
+      - name: openvkl
+        buildsystem: simple
+        build-commands:
+          - cp -rn bin/* /app/bin/
+          - cp -rn include/* /app/include/
+          - cp -rn lib/* /app/lib/
+        sources:
+          - type: archive
+            url: https://github.com/openvkl/openvkl/releases/download/v0.13.0/openvkl-0.13.0.x86_64.linux.tar.gz
+            sha256: 8789334cf354105426151146b4c6de8968694ad781d7c24052a8df50ea4f11e0
+
     # When VTK update, update OSPRay, Embree, TBB, ISPC, and OpenImageDenoise too.
     # Needed OSPRay version can be found in vtk/Rendering/RayTracing/CMakeLists.txt
+    # VTK 9.1 request ospray 2.1
   - name: VTK
     buildsystem: cmake-ninja
     builddir: true
     config-opts:
       - -DBUILD_SHARED_LIBS=ON
       - -DOpenGL_GL_PREFERENCE=GLVND
-      - -DBUILD_TESTING:BOOL=OFF
-      - -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
-      - -DVTK_USE_SYSTEM_EIGEN:BOOL=ON
-      - -DVTK_BUILD_QT_DESIGNER_PLUGIN:BOOL=OFF
+      - -DBUILD_TESTING:BOOL=ON
+      - -DVTK_BUILD_TESTING=OFF
+      #- -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
+      #- -DVTK_USE_SYSTEM_EIGEN:BOOL=ON
+      #- -DVTK_BUILD_QT_DESIGNER_PLUGIN:BOOL=OFF
       - -DCMAKE_BUILD_TYPE=Release
       - -DVTK_LEGACY_REMOVE:BOOL=ON
     #- -DVTK_MODULE_ENABLE_VTK_RenderingRayTracing=WANT
@@ -148,10 +195,14 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_RenderingOpenGL2=YES
       - -DVTK_MODULE_ENABLE_VTK_RenderingVolumeOpenGL2=YES
       - -DVTK_MODULE_ENABLE_VTK_jsoncpp=YES
+      - -DVTK_MODULE_ENABLE_VTK_TestingCore=YES
+      - -DVTK_MODULE_ENABLE_VTK_RenderingRayTracing=YES
+      - -DVTK_MODULE_ENABLE_VTK_opengl=YES
+      - -DVTK_MODULE_ENABLE_VTK_RenderingExternal=YES
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz
-        sha256: 8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96
+        url: https://www.vtk.org/files/release/9.2/VTK-9.2.0.rc2.tar.gz
+        sha256: 276f35541a46ef5963ae6667ee60b9cb19c9dc5cb28ae68db71fd8577620b0fc
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -233,24 +284,51 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/v5.1.3.tar.gz
-        sha256: 50a7bd2c8009945e1833c591d16f4f7c491a3c6190f69d9d007167aadb175c35
+        url: https://github.com/assimp/assimp/archive/v5.0.1.tar.gz
+        sha256: 11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
-    # Move config.json as upstream request.
-  - name: F3D
+  - name: Imath
     buildsystem: cmake-ninja
     config-opts:
+      - -DBUILD_TESTING:BOOL=OFF
+    sources:
+      - type: git
+        url: https://github.com/AcademySoftwareFoundation/Imath.git
+        tag: v3.1.5
+        x-checker-data:
+          type: git
+          tag-pattern: ^(v[\d.]+)$
+
+  - name: Alembic
+    buildsystem: cmake
+    #config-opts:
+      #- -DASSIMP_BUILD_ASSIMP_TOOLS:BOOL=NO
+      #- -DASSIMP_BUILD_TESTS:BOOL=NO
+    sources:
+      - type: archive
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.3.tar.gz
+        sha256: b0bc74833bff118a869e81e6acb810a58797e77ef63143954b2f8e817c7f65cb
+        x-checker-data:
+          type: anitya
+          project-id: 13980
+          stable-only: true
+          url-template: https://github.com/alembic/alembic/archive/refs/tags/$version.tar.gz
+
+    # Move config.json as upstream request.
+  - name: F3D
+    buildsystem: cmake
+    config-opts:
       - -DCMAKE_INSTALL_PREFIX:PATH=/app
-      - -DCMAKE_BUILD_TYPE:STRING=Release
       - -DBUILD_TESTING:BOOL=OFF
       - -DF3D_INSTALL_DEFAULT_CONFIGURATION_FILE:BOOL=ON
       - -DF3D_MODULE_EXODUS:BOOL=ON
-      - -DF3D_MODULE_RAYTRACING:BOOL=ON
+      - -DF3D_MODULE_RAYTRACING:BOOL=OFF
       - -DF3D_MODULE_OCCT:BOOL=ON
       - -DF3D_MODULE_ASSIMP:BOOL=ON
+      - -DF3D_MODULE_ALEMBIC:BOOL=ON
     post-install:
       - mv /app/etc/f3d/config.json /app/config.json
       - install -Dm644 resources/logo.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg
@@ -258,8 +336,8 @@ modules:
       - install -Dm644 resources/$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v1.2.1.tar.gz
-        sha256: 0d72cc465af1adefdf71695481ceea95d4a94ee9e00125bc98c9f32b14ac2bf4
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v1.3.1.tar.gz
+        sha256: 653dc4044e14d0618c1d947a8ee85d2513e100b3fc24bd6e51830131a13e795d
         x-checker-data:
           type: anitya
           project-id: 224911
@@ -267,3 +345,5 @@ modules:
           url-template: https://github.com/f3d-app/f3d/archive/refs/tags/v$version.tar.gz
       - type: patch
         path: fix_metainfo.patch
+      - type: patch
+        path: remove_stdc++fs.patch

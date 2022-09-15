@@ -1,0 +1,12 @@
+diff -ruN a/application/CMakeLists.txt b/application/CMakeLists.txt
+--- a/application/CMakeLists.txt	2022-09-13 10:40:04.833734800 +0200
++++ b/application/CMakeLists.txt	2022-09-13 16:34:25.943954494 +0200
+@@ -30,7 +30,7 @@
+ target_link_libraries(f3d PUBLIC libf3d)
+ 
+ if (UNIX AND NOT APPLE)
+-  target_link_libraries(f3d PRIVATE stdc++fs)
++  #target_link_libraries(f3d PRIVATE stdc++fs)
+ endif ()
+ 
+ set_target_properties(f3d PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
