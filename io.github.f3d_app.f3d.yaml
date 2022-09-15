@@ -201,8 +201,8 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_RenderingExternal=YES
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.2/VTK-9.2.0.rc2.tar.gz
-        sha256: 276f35541a46ef5963ae6667ee60b9cb19c9dc5cb28ae68db71fd8577620b0fc
+        url: https://www.vtk.org/files/release/9.1/VTK-9.1.0.tar.gz
+        sha256: 8fed42f4f8f1eb8083107b68eaa9ad71da07110161a3116ad807f43e5ca5ce96
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -302,6 +302,7 @@ modules:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
+        commit: 90c47b495b3ecf863a8a5de562c6e47d49cfb27b
   - name: Alembic
     buildsystem: cmake
     #config-opts:
