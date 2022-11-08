@@ -297,12 +297,12 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.5
+        tag: v3.1.6
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
 
-        commit: 90c47b495b3ecf863a8a5de562c6e47d49cfb27b
+        commit: 7c6c5fd76edf0c71db1a5a14d66a04a7d2bf9c1f
   - name: Alembic
     buildsystem: cmake
     #config-opts:
