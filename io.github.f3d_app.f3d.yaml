@@ -321,6 +321,10 @@ modules:
     # Move config.json as upstream request.
   - name: F3D
     buildsystem: cmake
+    build-options:
+      env:
+        LIBRARY_PATH: "/app/lib:/usr/lib"
+        LD_LIBRARY_PATH: "/app/lib:/usr/lib"
     config-opts:
       - -DCMAKE_INSTALL_PREFIX:PATH=/app
       - -DBUILD_TESTING:BOOL=OFF
