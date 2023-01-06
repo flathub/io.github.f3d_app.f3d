@@ -201,8 +201,8 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_RenderingExternal=YES
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.2/VTK-9.2.4.tar.gz
-        sha256: 9ed0d55c923778469357412d3f6bdd4841a31c30be997a53a7b0632d815cbc9c
+        url: https://www.vtk.org/files/release/9.2/VTK-9.2.5.tar.gz
+        sha256: 128d601baa980e98ee034207974b33fb38d2c98ab9cf4a5756efdb09ed6c0949
         x-checker-data:
           type: anitya
           project-id: 15084
