@@ -310,8 +310,8 @@ modules:
       #- -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.4.tar.gz
-        sha256: e0fe1e16e6ec9a699b5f016f9e0ed31a384a008cfd9184f31253e2e096b1afda
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.5.tar.gz
+        sha256: 180a12f08d391cd89f021f279dbe3b5423b1db751a9898540c8059a45825c2e9
         x-checker-data:
           type: anitya
           project-id: 13980
