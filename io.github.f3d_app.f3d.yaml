@@ -271,8 +271,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_6_3
-        commit: b079fb9877ef64d4a8158a60fa157f59b096debb
+        tag: V7_7_0
+        commit: 185d29b92f6764ffa9fc195b7dbe7bba3c4ac855
         x-checker-data:
           type: git
           tag-pattern: ^(V[\d._]+)$
@@ -310,8 +310,8 @@ modules:
       #- -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.4.tar.gz
-        sha256: e0fe1e16e6ec9a699b5f016f9e0ed31a384a008cfd9184f31253e2e096b1afda
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.5.tar.gz
+        sha256: 180a12f08d391cd89f021f279dbe3b5423b1db751a9898540c8059a45825c2e9
         x-checker-data:
           type: anitya
           project-id: 13980
@@ -341,8 +341,8 @@ modules:
       - install -Dm644 resources/$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v1.3.1.tar.gz
-        sha256: 653dc4044e14d0618c1d947a8ee85d2513e100b3fc24bd6e51830131a13e795d
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.0.0.tar.gz
+        sha256: 5b335de78a9f68903d7023d947090d4b36fa15b9e165749906a82153e0f56d05
         x-checker-data:
           type: anitya
           project-id: 224911
