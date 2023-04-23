@@ -339,6 +339,7 @@ modules:
       - -DF3D_MODULE_OCCT:BOOL=ON
       - -DF3D_MODULE_ASSIMP:BOOL=ON
       - -DF3D_MODULE_ALEMBIC:BOOL=ON
+      - -DF3D_LINUX_APPLICATION_LINK_FILESYSTEM:BOOL=OFF
     post-install:
       - mv /app/etc/f3d/config.json /app/config.json
       - install -Dm644 resources/logo.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg
@@ -355,5 +356,5 @@ modules:
           url-template: https://github.com/f3d-app/f3d/archive/refs/tags/v$version.tar.gz
       - type: patch
         path: fix_metainfo.patch
-      - type: patch
-        path: remove_stdc++fs.patch
+      # - type: patch
+      #   path: remove_stdc++fs.patch
