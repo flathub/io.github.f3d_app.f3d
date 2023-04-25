@@ -1,6 +1,16 @@
 diff -ruN a/resources/app.f3d.F3D.metainfo.xml b/resources/app.f3d.F3D.metainfo.xml
---- a/resources/app.f3d.F3D.metainfo.xml	2023-04-23 00:09:54.613003238 +0200
-+++ b/resources/app.f3d.F3D.metainfo.xml	2023-04-23 00:12:41.459456217 +0200
+--- a/resources/app.f3d.F3D.metainfo.xml	2023-04-25 11:24:44.688458586 +0200
++++ b/resources/app.f3d.F3D.metainfo.xml	2023-04-25 11:26:31.603956663 +0200
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop">
+-    <id>app.f3d.F3D</id>
+-    <launchable type="desktop-id">f3d.desktop</launchable>
++    <id>io.github.f3d_app.f3d</id>
++    <launchable type="desktop-id">io.github.f3d_app.f3d.desktop</launchable>
+     <name>F3D</name>
+     <summary>A fast and minimalist 3D viewer</summary>
+     <metadata_license>CC0-1.0</metadata_license>
 @@ -43,4 +43,12 @@
          </screenshot>
      </screenshots>
