@@ -267,7 +267,7 @@ modules:
           type: anitya
           project-id: 322269
           stable-only: true
-          url-template: https://github.com/google/draco/archive/refs/tags/$v ersion.tar.gz
+          url-template: https://github.com/google/draco/archive/refs/tags/$version.tar.gz
 
   - name: OCCT
     buildsystem: cmake-ninja
