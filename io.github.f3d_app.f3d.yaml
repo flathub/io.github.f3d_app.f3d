@@ -4,6 +4,7 @@ sdk: org.freedesktop.Sdk
 runtime-version: '22.08'
 command: f3d
 rename-desktop-file: f3d.desktop
+rename-icon: f3d
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -204,14 +205,6 @@ modules:
           project-id: 15084
           stable-only: true
           url-template: https://www.vtk.org/files/release/$major.$minor/VTK-$version.tar.gz
-    #modules:
-        # New version of OpenImageDenoise need new version of ISPC which we are using old ISPC.
-      #- name: OpenImageDenoise
-        #buildsystem: cmake
-        #sources:
-          #- type: archive
-            #url: https://github.com/OpenImageDenoise/oidn/releases/download/v1.1.0/oidn-1.1.0.src.tar.gz
-            #sha256: 4dd484abea8a0b3d12d346343fcb1ab7abef8f94318d8c537f69a20c2a75c4eb
 
   - name: Tcl
     buildsystem: autotools
@@ -292,8 +285,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_6_3
-        commit: b079fb9877ef64d4a8158a60fa157f59b096debb
+        tag: V7_7_0
+        commit: 185d29b92f6764ffa9fc195b7dbe7bba3c4ac855
         x-checker-data:
           type: git
           tag-pattern: ^(V[\d._]+)$
@@ -305,11 +298,13 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.0.1.tar.gz
-        sha256: 11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.2.5.tar.gz
+        sha256: b5219e63ae31d895d60d98001ee5bb809fb2c7b2de1e7f78ceeb600063641e1a
         x-checker-data:
-          type: git
-          tag-pattern: ^(v[\d.]+)$
+          type: anitya
+          project-id: 6988
+          stable-only: true
+          url-template: https://github.com/assimp/assimp/archive/refs/tags/v$version.tar.gz
 
   - name: Imath
     buildsystem: cmake-ninja
@@ -322,13 +317,13 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-
         commit: a4f9d5c6205482e1f1a86c84bb97bafa247fb774
+
   - name: Alembic
-    buildsystem: cmake
-    #config-opts:
-      #- -DASSIMP_BUILD_ASSIMP_TOOLS:BOOL=NO
-      #- -DASSIMP_BUILD_TESTS:BOOL=NO
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DUSE_TESTS:BOOL=OFF
+      - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
         url: https://github.com/alembic/alembic/archive/refs/tags/1.8.5.tar.gz
@@ -341,7 +336,8 @@ modules:
 
     # Move config.json as upstream request.
   - name: F3D
-    buildsystem: cmake
+    buildsystem: cmake-ninja
+    builddir: true
     build-options:
       env:
         LIBRARY_PATH: /app/lib:/usr/lib
@@ -350,7 +346,7 @@ modules:
       - -DCMAKE_INSTALL_PREFIX:PATH=/app
       - -DBUILD_TESTING:BOOL=OFF
       - -DF3D_LINUX_INSTALL_DEFAULT_CONFIGURATION_FILE_IN_PREFIX:BOOL=ON
-      - -DF3D_PLUGINS_STATIC_BUILD=OFF
+      - -DF3D_PLUGINS_STATIC_BUILD=ON
       - -DF3D_PLUGIN_BUILD_ALEMBIC=ON
       - -DF3D_PLUGIN_BUILD_ASSIMP:BOOL=ON
       - -DF3D_PLUGIN_BUILD_DRACO:BOOL=ON
@@ -358,11 +354,12 @@ modules:
       - -DF3D_PLUGIN_BUILD_OCCT:BOOL=ON
       - -DF3D_LINUX_APPLICATION_LINK_FILESYSTEM:BOOL=OFF
     post-install:
-      # - mv /app/etc/f3d/config.json /app/config.json
-      - install -Dm644 resources/logo.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg
+      - cmake --install . --component mimetypes
+      - cmake --install . --component sdk
+      - cmake --install . --component configuration
+      # - install -Dm644 resources/logo.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg
       - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID /app/share/applications/f3d.desktop
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
-      # - install -Dm644 resources/$FLATPAK_ID.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
         url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.0.0.tar.gz
@@ -377,5 +374,3 @@ modules:
           url-template: https://github.com/f3d-app/f3d/archive/refs/tags/v$version.tar.gz
       - type: patch
         path: fix_metainfo.patch
-      # - type: patch
-      #   path: remove_stdc++fs.patch
