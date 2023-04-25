@@ -334,7 +334,6 @@ modules:
           stable-only: true
           url-template: https://github.com/alembic/alembic/archive/refs/tags/$version.tar.gz
 
-    # Move config.json as upstream request.
   - name: F3D
     buildsystem: cmake-ninja
     builddir: true
@@ -357,7 +356,6 @@ modules:
       - cmake --install . --component mimetypes
       - cmake --install . --component sdk
       - cmake --install . --component configuration
-      # - install -Dm644 resources/logo.svg /app/share/icons/hicolor/scalable/apps/$FLATPAK_ID.svg
       - desktop-file-edit --set-key=Icon --set-value=$FLATPAK_ID /app/share/applications/f3d.desktop
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
