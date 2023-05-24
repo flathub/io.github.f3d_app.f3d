@@ -46,8 +46,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_1.tar.gz
-        sha256: 1f710f3846d9c3ef9a4c57ef252ee0570f0af4e028fd6ccc360a48b7b16c347d
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_1-2.tar.gz
+        sha256: c05846ca3f5ab1b2673f4ac1c0ff7b2f5285ab8ab99d25368dce1fdf25ad0a4a
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -313,11 +313,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.7
+        tag: v3.1.8
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: a4f9d5c6205482e1f1a86c84bb97bafa247fb774
+        commit: 3ec6904bc534f91cdfc76bc55a06a92574e3565b
 
   - name: Alembic
     buildsystem: cmake-ninja
