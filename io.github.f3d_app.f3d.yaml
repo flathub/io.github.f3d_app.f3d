@@ -10,13 +10,13 @@ finish-args:
   - --socket=x11
   - --device=dri
   - --filesystem=home
-# cleanup:
-#   - /include
-#   - /lib/cmake
-#   - /share/doc
-#   - /etc
-#   - '*.la'
-#   - '*.a'
+cleanup:
+  - /include
+  - /lib/cmake
+  - /share/doc
+  - /etc
+  - '*.la'
+  - '*.a'
 
 modules:
   - shared-modules/glew/glew.json
