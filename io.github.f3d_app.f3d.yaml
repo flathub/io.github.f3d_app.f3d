@@ -46,8 +46,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_0.tar.gz
-        sha256: 0f2ec13c1bf6e9f506fd03681c83a476d722e7479cad9ce6f8585a26c317d0ad
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_1-2.tar.gz
+        sha256: c05846ca3f5ab1b2673f4ac1c0ff7b2f5285ab8ab99d25368dce1fdf25ad0a4a
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -285,8 +285,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_7_0
-        commit: 185d29b92f6764ffa9fc195b7dbe7bba3c4ac855
+        tag: V7_7_1
+        commit: ffce0d66bbaafe3a95984d0e61804c201b9995d2
         x-checker-data:
           type: git
           tag-pattern: ^(V[\d._]+)$
@@ -313,11 +313,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.7
+        tag: v3.1.9
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: a4f9d5c6205482e1f1a86c84bb97bafa247fb774
+        commit: d690a3fcff4e877ead5ae56c7e964595ade8a35e
 
   - name: Alembic
     buildsystem: cmake-ninja
