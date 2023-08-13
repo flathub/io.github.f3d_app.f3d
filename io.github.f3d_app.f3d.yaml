@@ -46,8 +46,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_1-2.tar.gz
-        sha256: c05846ca3f5ab1b2673f4ac1c0ff7b2f5285ab8ab99d25368dce1fdf25ad0a4a
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_2.tar.gz
+        sha256: 83eaee3f9d1790bb4b29368bf1a648ece763097a4122c80a81076e8fb1e890e6
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -285,8 +285,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_7_1
-        commit: ffce0d66bbaafe3a95984d0e61804c201b9995d2
+        tag: V7_7_2
+        commit: cec1ecd0c9f3b3d2572c47035d11949e8dfa85e2
         x-checker-data:
           type: git
           tag-pattern: ^(V[\d._]+)$
