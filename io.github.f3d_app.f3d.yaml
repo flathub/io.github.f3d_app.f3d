@@ -46,8 +46,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_1-2.tar.gz
-        sha256: c05846ca3f5ab1b2673f4ac1c0ff7b2f5285ab8ab99d25368dce1fdf25ad0a4a
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_2.tar.gz
+        sha256: 83eaee3f9d1790bb4b29368bf1a648ece763097a4122c80a81076e8fb1e890e6
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -285,8 +285,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_7_1
-        commit: ffce0d66bbaafe3a95984d0e61804c201b9995d2
+        tag: V7_7_2
+        commit: cec1ecd0c9f3b3d2572c47035d11949e8dfa85e2
         x-checker-data:
           type: git
           tag-pattern: ^(V[\d._]+)$
@@ -298,8 +298,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.2.5.tar.gz
-        sha256: b5219e63ae31d895d60d98001ee5bb809fb2c7b2de1e7f78ceeb600063641e1a
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.3.1.tar.gz
+        sha256: a07666be71afe1ad4bc008c2336b7c688aca391271188eb9108d0c6db1be53f1
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -326,8 +326,8 @@ modules:
       - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.5.tar.gz
-        sha256: 180a12f08d391cd89f021f279dbe3b5423b1db751a9898540c8059a45825c2e9
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.6.tar.gz
+        sha256: c572ebdea3a5f0ce13774dd1fceb5b5815265cd1b29d142cf8c144b03c131c8c
         x-checker-data:
           type: anitya
           project-id: 13980
