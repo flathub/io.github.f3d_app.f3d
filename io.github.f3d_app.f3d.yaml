@@ -360,8 +360,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.1.0.tar.gz
-        sha256: 3e5e6c2c16da4d7ccce8b6e316ab8007592a2bc0fc11a513f1ebac8c7f0f95d2
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.2.1.tar.gz
+        sha256: 4d3a73b0107c8db7f0556107c74087d3748232a73981f65f7c5186ac1003ec8d
         x-checker-data:
           type: anitya
           project-id: 224911
