@@ -46,8 +46,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_2.tar.gz
-        sha256: 83eaee3f9d1790bb4b29368bf1a648ece763097a4122c80a81076e8fb1e890e6
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_3.tar.gz
+        sha256: df5ee33c74d5efb59738075ef96f4201588e1f1eeb233f047ac7fd1072dee1f6
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -198,8 +198,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.2/VTK-9.2.6.tar.gz
-        sha256: 06fc8d49c4e56f498c40fcb38a563ed8d4ec31358d0101e8988f0bb4d539dd12
+        url: https://www.vtk.org/files/release/9.3/VTK-9.3.0.tar.gz
+        sha256: fdc7b9295225b34e4fdddc49cd06e66e94260cb00efee456e0f66568c9681be9
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -281,15 +281,14 @@ modules:
       - -DBUILD_MODULE_ModelingData=OFF
       - -DBUILD_MODULE_Visualization=OFF
       - -DBUILD_DOC_Overview=OFF
-      - -DCMAKE_BUILD_TYPE=Release
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT.git
         tag: V7_7_2
         commit: cec1ecd0c9f3b3d2572c47035d11949e8dfa85e2
-        x-checker-data:
-          type: git
-          tag-pattern: ^(V[\d._]+)$
+        # x-checker-data:
+        #   type: git
+        #   tag-pattern: ^(V[\d._]+)$
 
   - name: assimp
     buildsystem: cmake-ninja
@@ -298,8 +297,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.3.1.tar.gz
-        sha256: a07666be71afe1ad4bc008c2336b7c688aca391271188eb9108d0c6db1be53f1
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.0.1.tar.gz
+        sha256: 11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -360,8 +359,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.1.0.tar.gz
-        sha256: 3e5e6c2c16da4d7ccce8b6e316ab8007592a2bc0fc11a513f1ebac8c7f0f95d2
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.2.1.tar.gz
+        sha256: 4d3a73b0107c8db7f0556107c74087d3748232a73981f65f7c5186ac1003ec8d
         x-checker-data:
           type: anitya
           project-id: 224911
