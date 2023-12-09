@@ -286,9 +286,9 @@ modules:
         url: https://github.com/Open-Cascade-SAS/OCCT.git
         tag: V7_7_0
         commit: 185d29b92f6764ffa9fc195b7dbe7bba3c4ac855
-        x-checker-data:
-          type: git
-          tag-pattern: ^(V[\d._]+)$
+        # x-checker-data:
+        #   type: git
+        #   tag-pattern: ^(V[\d._]+)$
 
   - name: assimp
     buildsystem: cmake-ninja
