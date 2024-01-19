@@ -261,8 +261,8 @@ modules:
       cxxflags: -fPIC
     sources:
       - type: archive
-        url: https://github.com/google/draco/archive/refs/tags/1.5.6.tar.gz
-        sha256: 0280888e5b8e4c4fb93bf40e65e4e8a1ba316a0456f308164fb5c2b2b0c282d6
+        url: https://github.com/google/draco/archive/refs/tags/1.5.7.tar.gz
+        sha256: bf6b105b79223eab2b86795363dfe5e5356050006a96521477973aba8f036fe1
         x-checker-data:
           type: anitya
           project-id: 322269
@@ -297,8 +297,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.0.1.tar.gz
-        sha256: 11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.3.1.tar.gz
+        sha256: a07666be71afe1ad4bc008c2336b7c688aca391271188eb9108d0c6db1be53f1
         x-checker-data:
           type: anitya
           project-id: 6988
