@@ -261,8 +261,8 @@ modules:
       cxxflags: -fPIC
     sources:
       - type: archive
-        url: https://github.com/google/draco/archive/refs/tags/1.5.6.tar.gz
-        sha256: 0280888e5b8e4c4fb93bf40e65e4e8a1ba316a0456f308164fb5c2b2b0c282d6
+        url: https://github.com/google/draco/archive/refs/tags/1.5.7.tar.gz
+        sha256: bf6b105b79223eab2b86795363dfe5e5356050006a96521477973aba8f036fe1
         x-checker-data:
           type: anitya
           project-id: 322269
@@ -297,8 +297,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.0.1.tar.gz
-        sha256: 11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.3.1.tar.gz
+        sha256: a07666be71afe1ad4bc008c2336b7c688aca391271188eb9108d0c6db1be53f1
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -312,11 +312,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.9
+        tag: v3.1.10
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: d690a3fcff4e877ead5ae56c7e964595ade8a35e
+        commit: 9fe5ed213cd99237976f2eb48b8bf86e112d90fa
 
   - name: Alembic
     buildsystem: cmake-ninja
@@ -359,8 +359,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.2.1.tar.gz
-        sha256: 4d3a73b0107c8db7f0556107c74087d3748232a73981f65f7c5186ac1003ec8d
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.3.0.tar.gz
+        sha256: 13d33b49bad71a5a1bb9d1ecc927cc2d26d767daebaa6dba145bcc411b8d5f27
         x-checker-data:
           type: anitya
           project-id: 224911
