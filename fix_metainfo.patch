@@ -1,6 +1,6 @@
 diff -ruN a/resources/app.f3d.F3D.metainfo.xml b/resources/app.f3d.F3D.metainfo.xml
 --- a/resources/app.f3d.F3D.metainfo.xml	2024-03-29 07:17:35.000000000 +0100
-+++ b/resources/app.f3d.F3D.metainfo.xml	2024-04-04 12:40:51.509005134 +0200
++++ b/resources/app.f3d.F3D.metainfo.xml	2024-04-04 12:44:17.091248379 +0200
 @@ -1,7 +1,7 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <component type="desktop">
@@ -19,11 +19,14 @@ diff -ruN a/resources/app.f3d.F3D.metainfo.xml b/resources/app.f3d.F3D.metainfo.
      <screenshots>
          <screenshot type="default">
              <image>https://user-images.githubusercontent.com/3129530/194735416-3f386437-456c-4145-9b5e-6bb6451d7e9a.png</image>
-@@ -43,4 +44,14 @@
+@@ -43,4 +44,17 @@
          </screenshot>
      </screenshots>
      <content_rating type="oars-1.1"/>
 +    <releases>
++         <release version="2.4.0" date="2024-04-03"/>
++         <release version="2.3.1" date="2024-03-28"/>
++         <release version="2.3.0" date="2024-01-21"/>
 +         <release version="2.2.1" date="2023-10-04"/>
 +         <release version="2.1.0" date="2023-07-03"/>
 +         <release version="2.0.0" date="2023-04-20"/>
