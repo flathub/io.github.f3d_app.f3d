@@ -213,8 +213,8 @@ modules:
       no-debuginfo: true
     sources:
       - type: archive
-        url: https://prdownloads.sourceforge.net/tcl/tcl8.6.13-src.tar.gz
-        sha256: 43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066
+        url: https://prdownloads.sourceforge.net/tcl/tcl8.6.14-src.tar.gz
+        sha256: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
         x-checker-data:
           type: anitya
           project-id: 4941
@@ -245,8 +245,8 @@ modules:
       - /share/doc
     sources:
       - type: archive
-        url: https://www.x.org/archive/individual/lib/libXmu-1.1.4.tar.gz
-        sha256: 3091d711cdc1d8ea0f545a13b90d1464c3c3ab64778fd121f0d789b277a80289
+        url: https://www.x.org/archive/individual/lib/libXmu-1.2.0.tar.gz
+        sha256: b4686c4b4570044bcfc35bfaa3edbe68185ddf8e3250387f74a140c8e45afb2f
         x-checker-data:
           type: anitya
           project-id: 1785
@@ -312,11 +312,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.10
+        tag: v3.1.11
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: 9fe5ed213cd99237976f2eb48b8bf86e112d90fa
+        commit: 5ac1d5335cb34f0f356c5f2461a57c845b96b115
 
   - name: Alembic
     buildsystem: cmake-ninja
@@ -359,8 +359,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.3.0.tar.gz
-        sha256: 13d33b49bad71a5a1bb9d1ecc927cc2d26d767daebaa6dba145bcc411b8d5f27
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.3.1.tar.gz
+        sha256: e6ada89851cd27c84117b5b73dd69475fa7442f05e1dbf2fa76e1dc34d2c0006
         x-checker-data:
           type: anitya
           project-id: 224911
