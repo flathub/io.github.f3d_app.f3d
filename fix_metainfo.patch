@@ -1,6 +1,6 @@
 diff -ruN a/resources/app.f3d.F3D.metainfo.xml b/resources/app.f3d.F3D.metainfo.xml
---- a/resources/app.f3d.F3D.metainfo.xml	2024-03-29 07:17:35.000000000 +0100
-+++ b/resources/app.f3d.F3D.metainfo.xml	2024-04-04 12:44:17.091248379 +0200
+--- a/resources/app.f3d.F3D.metainfo.xml	2024-04-03 14:42:33.000000000 +0200
++++ b/resources/app.f3d.F3D.metainfo.xml	2024-04-06 14:53:07.137023556 +0200
 @@ -1,7 +1,7 @@
  <?xml version="1.0" encoding="UTF-8"?>
  <component type="desktop">
@@ -11,15 +11,7 @@ diff -ruN a/resources/app.f3d.F3D.metainfo.xml b/resources/app.f3d.F3D.metainfo.
      <name>F3D</name>
      <summary>A fast and minimalist 3D viewer</summary>
      <metadata_license>CC0-1.0</metadata_license>
-@@ -16,6 +16,7 @@
-     <url type="homepage">https://f3d.app/</url>
-     <url type="help">https://f3d.app/doc/user/README_USER.html</url>
-     <url type="bugtracker">https://github.com/f3d-app/f3d/issues</url>
-+    <developer_name>Michael Migliore and Mathieu Westphal</developer_name>
-     <screenshots>
-         <screenshot type="default">
-             <image>https://user-images.githubusercontent.com/3129530/194735416-3f386437-456c-4145-9b5e-6bb6451d7e9a.png</image>
-@@ -43,4 +44,17 @@
+@@ -44,4 +44,17 @@
          </screenshot>
      </screenshots>
      <content_rating type="oars-1.1"/>
