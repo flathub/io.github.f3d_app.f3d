@@ -297,8 +297,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.4.0.tar.gz
-        sha256: a90f77b0269addb2f381b00c09ad47710f2aab6b1d904f5e9a29953c30104d3f
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.4.1.tar.gz
+        sha256: a1bf71c4eb851ca336bba301730cd072b366403e98e3739d6a024f6313b8f954
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -336,16 +336,16 @@ modules:
   - name: libdeflate
     buildsystem: cmake-ninja
     sources:
-    - type: archive
-      url: https://github.com/ebiggers/libdeflate/releases/download/v1.20/libdeflate-1.20.tar.gz
-      sha256: c52cf0239fd644d71c9e88613dd7431a5306ebee1280c5791c71ca264869250a
+      - type: archive
+        url: https://github.com/ebiggers/libdeflate/releases/download/v1.20/libdeflate-1.20.tar.gz
+        sha256: c52cf0239fd644d71c9e88613dd7431a5306ebee1280c5791c71ca264869250a
 
   - name: openexr
     buildsystem: cmake-ninja
     sources:
-    - type: archive
-      url: https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.4.tar.gz
-      sha256: 81e6518f2c4656fdeaf18a018f135e96a96e7f66dbe1c1f05860dd94772176cc
+      - type: archive
+        url: https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.4.tar.gz
+        sha256: 81e6518f2c4656fdeaf18a018f135e96a96e7f66dbe1c1f05860dd94772176cc
 
   - name: F3D
     buildsystem: cmake-ninja
