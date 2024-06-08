@@ -1,10 +1,11 @@
 app-id: io.github.f3d_app.f3d
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '22.08'
+runtime-version: '23.08'
 command: f3d
 rename-desktop-file: f3d.desktop
 rename-icon: f3d
+# sdk-extensions: org.freedesktop.Sdk.Extension.llvm17
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -67,15 +68,6 @@ modules:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/v2021.9.0.tar.gz
         sha256: 1ce48f34dada7837f510735ff1172f6e2c261b09460e3bf773b49791d247d24e
-  # - name: TBB
-  #   buildsystem: cmake
-  #   builddir: true
-  #   sources:
-  #     - type: archive
-  #       url: https://github.com/oneapi-src/oneTBB/archive/2019_U8.tar.gz
-  #       sha256: 6b540118cbc79f9cbc06a35033c18156c21b84ab7b6cf56d773b168ad2b68566
-  #     - type: patch
-  #       path: tbb_cmake.patch
 
     # OSPRay 2.1.0 use Embree 3.9.0
     # ospray/scripts/superbuild/CMakeLists.txt
@@ -120,17 +112,75 @@ modules:
   #           url: https://github.com/glfw/glfw/releases/download/3.3.4/glfw-3.3.4.zip
   #           sha256: bbd2c42c660b725e9755eb417e40b373f0d4c03138c9b2e210d02cd308bd99cd
 
-    # Can't build from source
-  # - name: OSPRay
+  #
+  # - name: ISPC
   #   buildsystem: simple
   #   build-commands:
-  #     - cp -rn bin/* /app/bin/
-  #     - cp -rn include/* /app/include/
-  #     - cp -rn lib/* /app/lib/
+  #     - cp bin/ispc /app/bin/
   #   sources:
   #     - type: archive
-  #       url: https://github.com/ospray/ospray/releases/download/v2.1.0/ospray-2.1.0.x86_64.linux.tar.gz
-  #       sha256: 23ac9ab5e279392499c7598b4513c4c717708778c311c35681e1b90e95512790
+  #       url: https://github.com/ispc/ispc/releases/download/v1.24.0/ispc-v1.24.0-linux.tar.gz
+  #       sha256: b3e5f71fd93aeaec7634179274b52572e59e700b8ff48c13d0f46708ee61a2c5
+  #
+  # - name: rkcommon
+  #   buildsystem: cmake-ninja
+  #   builddir: true
+  #   sources:
+  #     - type: archive
+  #       url: https://github.com/ospray/rkcommon/archive/refs/tags/v1.13.0.tar.gz
+  #       sha256: 8ae9f911420085ceeca36e1f16d1316a77befbf6bf6de2a186d65440ac66ff1f
+  #
+  # - name: Embree
+  #   buildsystem: cmake-ninja
+  #   config-opts:
+  #     - -DEMBREE_TUTORIALS:BOOL=OFF
+  #     - -DEMBREE_ISPC_SUPPORT:BOOL=ON
+  #   sources:
+  #     - type: archive
+  #       url: https://github.com/embree/embree/archive/refs/tags/v3.13.1.tar.gz
+  #       sha256: 00dbd852f19ae2b95f5106dd055ca4b304486436ced0ccf842aec4e38a4df425
+  #
+  # - name: glfw
+  #   buildsystem: cmake-ninja
+  #   config-opts:
+  #       # - -DGLFW_USE_WAYLAND:BOOL=ON
+  #       - -DGLFW_BUILD_WAYLAND:BOOL=ON
+  #       - -DGLFW_BUILD_X11:BOOL=ON
+  #       - -DBUILD_SHARED_LIBS:BOOL=ON
+  #       - -DGLFW_BUILD_EXAMPLES:BOOL=OFF
+  #       - -DGLFW_BUILD_TESTS:BOOL=OFF
+  #       - -DGLFW_BUILD_DOCS:BOOL=OFF
+  #   sources:
+  #     - type: archive
+  #       url: https://github.com/glfw/glfw/releases/download/3.4/glfw-3.4.zip
+  #       sha256: b5ec004b2712fd08e8861dc271428f048775200a2df719ccf575143ba749a3e9
+  #
+  # - name: openvkl
+  #   buildsystem: cmake-ninja
+  #   builddir: true
+  #   sources:
+  #     - type: archive
+  #       url: https://github.com/RenderKit/openvkl/archive/refs/tags/v1.2.0.tar.gz
+  #       sha256: dc468c2f0a359aaa946e04a01c2a6634081f7b6ce31b3c212c74bf7b4b0c9ec2
+  #
+  #
+  # - name: OSPRay
+  #   buildsystem: cmake-ninja
+  #   builddir: true
+  #   sources:
+  #     - type: archive
+  #       url: https://github.com/RenderKit/ospray/archive/refs/tags/v2.7.0.tar.gz
+  #       sha256: bcaeb221b5dd383d27587ffaca7f75d7e0064f64017a0d73df90862b14b5704b
+
+
+  # - name: OSPRay
+  #   buildsystem: cmake-ninja
+  #   sources:
+  #     - type: git
+  #       url: https://github.com/RenderKit/ospray.git
+  #       tag: v2.12.0
+  #       commit: 08111292f4671ed8822e7e0374080d75c15538a2
+
   #   modules:
   #     - name: ospcommon
   #       buildsystem: cmake
@@ -350,12 +400,7 @@ modules:
   - name: F3D
     buildsystem: cmake-ninja
     builddir: true
-    build-options:
-      env:
-        LIBRARY_PATH: /app/lib:/usr/lib
-        LD_LIBRARY_PATH: /app/lib:/usr/lib
     config-opts:
-      - -DCMAKE_INSTALL_PREFIX:PATH=/app
       - -DBUILD_TESTING:BOOL=OFF
       - -DF3D_MODULE_EXR:BOOL=ON
       - -DF3D_LINUX_INSTALL_DEFAULT_CONFIGURATION_FILE_IN_PREFIX:BOOL=ON
