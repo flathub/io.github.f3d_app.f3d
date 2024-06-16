@@ -455,6 +455,7 @@ modules:
       - -DF3D_PLUGIN_BUILD_EXODUS:BOOL=ON
       - -DF3D_PLUGIN_BUILD_OCCT:BOOL=ON
       - -DF3D_LINUX_APPLICATION_LINK_FILESYSTEM:BOOL=OFF
+      - -DF3D_PLUGIN_BUILD_USD:BOOL=ON
     post-install:
       - cmake --install . --component mimetypes
       - cmake --install . --component sdk
