@@ -248,8 +248,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.3/VTK-9.3.0.tar.gz
-        sha256: fdc7b9295225b34e4fdddc49cd06e66e94260cb00efee456e0f66568c9681be9
+        url: https://www.vtk.org/files/release/9.3/VTK-9.3.1.tar.gz
+        sha256: 8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -389,7 +389,7 @@ modules:
       - type: archive
         url: https://github.com/ebiggers/libdeflate/releases/download/v1.20/libdeflate-1.20.tar.gz
         sha256: c52cf0239fd644d71c9e88613dd7431a5306ebee1280c5791c71ca264869250a
-    
+
   - name: openexr
     buildsystem: cmake-ninja
     sources:
@@ -440,7 +440,7 @@ modules:
         path: 0001-usd-onetbb.patch
       - type: patch
         path: 0002-install-bin.patch
-    
+
   - name: F3D
     buildsystem: cmake-ninja
     builddir: true
@@ -464,8 +464,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.4.0.tar.gz
-        sha256: 3286ad1b324b995fd95818679b4ced80ebc3cc3b4bd4c8e6964695c05c934c8f
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.5.0.tar.gz
+        sha256: d7f6dd7d9e4465c1f44d168c3a38aad24569a25907673180c8791a783e73f02f
         x-checker-data:
           type: anitya
           project-id: 224911
