@@ -348,8 +348,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.4.3.tar.gz
-        sha256: 66dfbaee288f2bc43172440a55d0235dfc7bf885dda6435c038e8000e79582cb
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.4.1.tar.gz
+        sha256: a1bf71c4eb851ca336bba301730cd072b366403e98e3739d6a024f6313b8f954
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -363,11 +363,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.12
+        tag: v3.1.11
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: c0396a055a01bc537d32f435aee11a9b7ed6f0b5
+        commit: 5ac1d5335cb34f0f356c5f2461a57c845b96b115
 
   - name: Alembic
     buildsystem: cmake-ninja
