@@ -249,8 +249,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.3/VTK-9.3.1.tar.gz
-        sha256: 8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8
+        url: https://www.vtk.org/files/release/9.4/VTK-9.4.0.tar.gz
+        sha256: 16f3ffd65fafd68fab469bcb091395bf5432617c7db27cbce86a737bf09ec5b0
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -264,8 +264,8 @@ modules:
       no-debuginfo: true
     sources:
       - type: archive
-        url: https://prdownloads.sourceforge.net/tcl/tcl8.6.15-src.tar.gz
-        sha256: 861e159753f2e2fbd6ec1484103715b0be56be3357522b858d3cbb5f893ffef1
+        url: https://prdownloads.sourceforge.net/tcl/tcl9.0.0-src.tar.gz
+        sha256: 3bfda6dbaee8e9b1eeacc1511b4e18a07a91dff82d9954cdb9c729d8bca4bbb7
         x-checker-data:
           type: anitya
           project-id: 4941
@@ -283,8 +283,8 @@ modules:
       - /man
     sources:
       - type: archive
-        url: https://prdownloads.sourceforge.net/tcl/tk8.6.15-src.tar.gz
-        sha256: 550969f35379f952b3020f3ab7b9dd5bfd11c1ef7c9b7c6a75f5c49aca793fec
+        url: https://prdownloads.sourceforge.net/tcl/tk9.0.0-src.tar.gz
+        sha256: f166e3c20773c82243f753cef4b091d05267cb7f87da64be88cb2ca5a2ba027e
         x-checker-data:
           type: anitya
           project-id: 11426
@@ -376,8 +376,8 @@ modules:
       - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.6.tar.gz
-        sha256: c572ebdea3a5f0ce13774dd1fceb5b5815265cd1b29d142cf8c144b03c131c8c
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.7.tar.gz
+        sha256: 6de0b97cd14dcfb7b2d0d788c951b6da3c5b336c47322ea881d64f18575c33da
         x-checker-data:
           type: anitya
           project-id: 13980
