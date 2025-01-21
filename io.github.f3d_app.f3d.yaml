@@ -249,8 +249,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.3/VTK-9.3.1.tar.gz
-        sha256: 8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8
+        url: https://www.vtk.org/files/release/9.4/VTK-9.4.1.tar.gz
+        sha256: c253b0c8d002aaf98871c6d0cb76afc4936c301b72358a08d5f3f72ef8bc4529
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -266,11 +266,11 @@ modules:
       - type: archive
         url: https://prdownloads.sourceforge.net/tcl/tcl8.6.14-src.tar.gz
         sha256: 5880225babf7954c58d4fb0f5cf6279104ce1cd6aa9b71e9a6322540e1c4de66
-        x-checker-data:
-          type: anitya
-          project-id: 4941
-          stable-only: true
-          url-template: https://prdownloads.sourceforge.net/tcl/tcl$version-src.tar.gz
+        # x-checker-data:
+        #   type: anitya
+        #   project-id: 4941
+        #   stable-only: true
+        #   url-template: https://prdownloads.sourceforge.net/tcl/tcl$version-src.tar.gz
 
   - name: tk
     subdir: unix
@@ -285,11 +285,11 @@ modules:
       - type: archive
         url: https://prdownloads.sourceforge.net/tcl/tk8.6.14-src.tar.gz
         sha256: 8ffdb720f47a6ca6107eac2dd877e30b0ef7fac14f3a84ebbd0b3612cee41a94
-        x-checker-data:
-          type: anitya
-          project-id: 11426
-          stable-only: true
-          url-template: https://prdownloads.sourceforge.net/tcl/tk$version-src.tar.gz
+        # x-checker-data:
+        #   type: anitya
+        #   project-id: 11426
+        #   stable-only: true
+        #   url-template: https://prdownloads.sourceforge.net/tcl/tk$version-src.tar.gz
 
   - name: libXmu
     cleanup:
@@ -348,8 +348,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v5.4.1.tar.gz
-        sha256: a1bf71c4eb851ca336bba301730cd072b366403e98e3739d6a024f6313b8f954
+        url: https://github.com/assimp/assimp/archive/refs/tags/v5.4.3.tar.gz
+        sha256: 66dfbaee288f2bc43172440a55d0235dfc7bf885dda6435c038e8000e79582cb
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -363,11 +363,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.1.11
+        tag: v3.1.12
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: 5ac1d5335cb34f0f356c5f2461a57c845b96b115
+        commit: c0396a055a01bc537d32f435aee11a9b7ed6f0b5
 
   - name: Alembic
     buildsystem: cmake-ninja
@@ -376,8 +376,8 @@ modules:
       - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.6.tar.gz
-        sha256: c572ebdea3a5f0ce13774dd1fceb5b5815265cd1b29d142cf8c144b03c131c8c
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.8.tar.gz
+        sha256: ba1f34544608ef7d3f68cafea946ec9cc84792ddf9cda3e8d5590821df71f6c6
         x-checker-data:
           type: anitya
           project-id: 13980
@@ -465,8 +465,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v2.5.0.tar.gz
-        sha256: d7f6dd7d9e4465c1f44d168c3a38aad24569a25907673180c8791a783e73f02f
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v3.0.0.tar.gz
+        sha256: 7ea83830d1c8158a1f01e5ac9edd00b81de3e0b4cbdbc4a4bb60a113728b7b7a
         x-checker-data:
           type: anitya
           project-id: 224911
