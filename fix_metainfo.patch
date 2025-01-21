@@ -11,11 +11,13 @@ diff -ruN a/resources/app.f3d.F3D.metainfo.xml b/resources/app.f3d.F3D.metainfo.
      <name>F3D</name>
      <summary>A fast and minimalist 3D viewer</summary>
      <metadata_license>CC0-1.0</metadata_license>
-@@ -44,4 +44,18 @@
+@@ -44,4 +44,20 @@
          </screenshot>
      </screenshots>
      <content_rating type="oars-1.1"/>
 +    <releases>
++         <release version="3.0.0" date="2025-01-18"/>
++         <release version="2.5.1" date="2024-09-24"/>
 +         <release version="2.5.0" date="2024-07-03"/>
 +         <release version="2.4.0" date="2024-04-03"/>
 +         <release version="2.3.1" date="2024-03-28"/>
