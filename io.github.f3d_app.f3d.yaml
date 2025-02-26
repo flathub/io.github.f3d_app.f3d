@@ -47,8 +47,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1_14_3.tar.gz
-        sha256: df5ee33c74d5efb59738075ef96f4201588e1f1eeb233f047ac7fd1072dee1f6
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1.14.6.tar.gz
+        sha256: 6df53f84376d87e96eeb255703e3b1a348fc08a48e06e37053f1bfb379970189
         x-checker-data:
           type: anitya
           project-id: 1303
