@@ -1,7 +1,7 @@
 app-id: io.github.f3d_app.f3d
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '23.08'
+runtime-version: '24.08'
 command: f3d
 rename-desktop-file: f3d.desktop
 rename-icon: f3d
