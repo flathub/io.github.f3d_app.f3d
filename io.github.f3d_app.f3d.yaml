@@ -257,52 +257,29 @@ modules:
           stable-only: true
           url-template: https://www.vtk.org/files/release/$major.$minor/VTK-$version.tar.gz
 
-  - name: Tcl
+  - name: tcl
     buildsystem: autotools
     subdir: unix
-    build-options:
-      no-debuginfo: true
+    config-opts:
+      - --enable-threads
+      - --enable-shared
+    post-install:
+      - chmod 755 /app/lib/libtcl*.so
     sources:
       - type: archive
         url: https://prdownloads.sourceforge.net/tcl/tcl8.6.15-src.tar.gz
         sha256: 861e159753f2e2fbd6ec1484103715b0be56be3357522b858d3cbb5f893ffef1
-        # x-checker-data:
-        #   type: anitya
-        #   project-id: 4941
-        #   stable-only: true
-        #   url-template: https://prdownloads.sourceforge.net/tcl/tcl$version-src.tar.gz
 
   - name: tk
+    buildsystem: autotools
     subdir: unix
-    build-options:
-      no-debuginfo: true
-    make-install-args:
-      - install-private-headers
-    cleanup:
-      - /bin
-      - /man
+    post-install:
+      - chmod +w ${FLATPAK_DEST}/lib/libtk*.so
+      - ln -sf /app/bin/wish8.6 /app/bin/wish
     sources:
       - type: archive
         url: https://prdownloads.sourceforge.net/tcl/tk8.6.15-src.tar.gz
         sha256: 550969f35379f952b3020f3ab7b9dd5bfd11c1ef7c9b7c6a75f5c49aca793fec
-        # x-checker-data:
-        #   type: anitya
-        #   project-id: 11426
-        #   stable-only: true
-        #   url-template: https://prdownloads.sourceforge.net/tcl/tk$version-src.tar.gz
-
-  - name: libXmu
-    cleanup:
-      - /share/doc
-    sources:
-      - type: archive
-        url: https://www.x.org/archive/individual/lib/libXmu-1.2.1.tar.gz
-        sha256: bf0902583dd1123856c11e0a5085bd3c6e9886fbbd44954464975fd7d52eb599
-        x-checker-data:
-          type: anitya
-          project-id: 1785
-          stable-only: true
-          url-template: https://www.x.org/archive/individual/lib/libXmu-$version.tar.gz
 
   - name: Draco
     buildsystem: cmake-ninja
