@@ -411,8 +411,8 @@ modules:
       - -DTBB_LIBRARIES=/app/lib/libtbb.so
     sources:
       - type: archive
-        url: https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v23.05.tar.gz
-        sha256: f5c3e72cd584bab383a8054628b6ed98aa17b1cbbe896eb98257ac19641d10c7
+        url: https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v25.05.01.tar.gz
+        sha256: f424e8db26e063a1b005423ee52142e75c38185bbd4b8126ef64173e906dd50f
       - type: patch
         path: 0001-usd-onetbb.patch
       - type: patch
