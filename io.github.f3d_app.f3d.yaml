@@ -1,7 +1,7 @@
 app-id: io.github.f3d_app.f3d
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '23.08'
+runtime-version: '24.08'
 command: f3d
 rename-desktop-file: f3d.desktop
 rename-icon: f3d
@@ -249,60 +249,37 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.4/VTK-9.4.1.tar.gz
-        sha256: c253b0c8d002aaf98871c6d0cb76afc4936c301b72358a08d5f3f72ef8bc4529
+        url: https://www.vtk.org/files/release/9.4/VTK-9.4.2.tar.gz
+        sha256: 36c98e0da96bb12a30fe53708097aa9492e7b66d5c3b366e1c8dc251e2856a02
         x-checker-data:
           type: anitya
           project-id: 15084
           stable-only: true
           url-template: https://www.vtk.org/files/release/$major.$minor/VTK-$version.tar.gz
 
-  - name: Tcl
+  - name: tcl
     buildsystem: autotools
     subdir: unix
-    build-options:
-      no-debuginfo: true
+    config-opts:
+      - --enable-threads
+      - --enable-shared
+    post-install:
+      - chmod 755 /app/lib/libtcl*.so
     sources:
       - type: archive
         url: https://prdownloads.sourceforge.net/tcl/tcl8.6.15-src.tar.gz
         sha256: 861e159753f2e2fbd6ec1484103715b0be56be3357522b858d3cbb5f893ffef1
-        # x-checker-data:
-        #   type: anitya
-        #   project-id: 4941
-        #   stable-only: true
-        #   url-template: https://prdownloads.sourceforge.net/tcl/tcl$version-src.tar.gz
 
   - name: tk
+    buildsystem: autotools
     subdir: unix
-    build-options:
-      no-debuginfo: true
-    make-install-args:
-      - install-private-headers
-    cleanup:
-      - /bin
-      - /man
+    post-install:
+      - chmod +w ${FLATPAK_DEST}/lib/libtk*.so
+      - ln -sf /app/bin/wish8.6 /app/bin/wish
     sources:
       - type: archive
         url: https://prdownloads.sourceforge.net/tcl/tk8.6.15-src.tar.gz
         sha256: 550969f35379f952b3020f3ab7b9dd5bfd11c1ef7c9b7c6a75f5c49aca793fec
-        x-checker-data:
-          type: anitya
-          project-id: 11426
-          stable-only: true
-          url-template: https://prdownloads.sourceforge.net/tcl/tk$version-src.tar.gz
-
-  - name: libXmu
-    cleanup:
-      - /share/doc
-    sources:
-      - type: archive
-        url: https://www.x.org/archive/individual/lib/libXmu-1.2.1.tar.gz
-        sha256: bf0902583dd1123856c11e0a5085bd3c6e9886fbbd44954464975fd7d52eb599
-        x-checker-data:
-          type: anitya
-          project-id: 1785
-          stable-only: true
-          url-template: https://www.x.org/archive/individual/lib/libXmu-$version.tar.gz
 
   - name: Draco
     buildsystem: cmake-ninja
@@ -334,12 +311,11 @@ modules:
       - -DBUILD_DOC_Overview=OFF
     sources:
       - type: git
-        url: https://github.com/Open-Cascade-SAS/OCCT.git
-        tag: V7_7_2
-        commit: cec1ecd0c9f3b3d2572c47035d11949e8dfa85e2
-        # x-checker-data:
-        #   type: git
-        #   tag-pattern: ^(V[\d._]+)$
+        url: https://github.com/Open-Cascade-SAS/OCCT
+        tag: V7_8_1
+        commit: bd2a789f15235755ce4d1a3b07379a2e062fdc2e
+      - type: patch
+        path: freetype_use_unsigned_point_and_contour.patch
 
   - name: assimp
     buildsystem: cmake-ninja
@@ -435,12 +411,12 @@ modules:
       - -DTBB_LIBRARIES=/app/lib/libtbb.so
     sources:
       - type: archive
-        url: https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v23.05.tar.gz
-        sha256: f5c3e72cd584bab383a8054628b6ed98aa17b1cbbe896eb98257ac19641d10c7
-      - type: patch
-        path: 0001-usd-onetbb.patch
-      - type: patch
-        path: 0002-install-bin.patch
+        url: https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v25.05.01.tar.gz
+        sha256: f424e8db26e063a1b005423ee52142e75c38185bbd4b8126ef64173e906dd50f
+      # - type: patch
+      #   path: 0001-usd-onetbb.patch
+      # - type: patch
+      #   path: 0002-install-bin.patch
 
   - name: F3D
     buildsystem: cmake-ninja
@@ -465,8 +441,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v3.0.0.tar.gz
-        sha256: 7ea83830d1c8158a1f01e5ac9edd00b81de3e0b4cbdbc4a4bb60a113728b7b7a
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v3.1.0.tar.gz
+        sha256: 93ba23078133122e929d9c1e2946c86da1f08fe56b9ffae40ebfd8185e91380a
         x-checker-data:
           type: anitya
           project-id: 224911
