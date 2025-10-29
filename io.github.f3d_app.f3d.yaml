@@ -68,50 +68,6 @@ modules:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/v2021.9.0.tar.gz
         sha256: 1ce48f34dada7837f510735ff1172f6e2c261b09460e3bf773b49791d247d24e
-
-    # OSPRay 2.1.0 use Embree 3.9.0
-    # ospray/scripts/superbuild/CMakeLists.txt
-  # - name: Embree
-  #   buildsystem: cmake-ninja
-  #   config-opts:
-  #     - -DEMBREE_TUTORIALS:BOOL=OFF
-  #     - -DEMBREE_ISPC_SUPPORT:BOOL=ON
-  #     - -DEMBREE_TBB_INCLUDE_DIR=/app/include
-  #     #- -DEMBREE_TBB_LIBRARY=/app/lib
-  #     #- -DEMBREE_TBBMALLOC_LIBRARY=/app/lib
-  #   sources:
-  #     - type: archive
-  #       url: https://github.com/embree/embree/archive/refs/tags/v3.9.0.tar.gz
-  #       sha256: 53855e2ceb639289b20448ae9deab991151aa5f0bc7f9cc02f2af4dd6199d5d1
-  #   modules:
-  #     - name: extra-cmake-modules
-  #       buildsystem: cmake-ninja
-  #       sources:
-  #         - type: git
-  #           url: https://invent.kde.org/frameworks/extra-cmake-modules.git
-  #           tag: v5.98.0
-  #       # Attempt to build from source, but ISPC need glic-32bit which make things complicated.
-  #     - name: ISPC
-  #       buildsystem: simple
-  #       build-commands:
-  #         - cp bin/ispc /app/bin/
-  #       sources:
-  #         - type: archive
-  #           url: https://github.com/ispc/ispc/releases/download/v1.18.0/ispc-v1.18.0-linux.tar.gz
-  #           sha256: 6c379bb97962e9de7d24fd48b3f7e647dc42be898e9d187948220268c646b692
-  #     - name: glfw
-  #       buildsystem: cmake-ninja
-  #       config-opts:
-  #         - -DGLFW_USE_WAYLAND:BOOL=ON
-  #         - -DBUILD_SHARED_LIBS:BOOL=ON
-  #         - -DGLFW_BUILD_EXAMPLES:BOOL=OFF
-  #         - -DGLFW_BUILD_TESTS:BOOL=OFF
-  #         - -DGLFW_BUILD_DOCS:BOOL=OFF
-  #       sources:
-  #         - type: archive
-  #           url: https://github.com/glfw/glfw/releases/download/3.3.4/glfw-3.3.4.zip
-  #           sha256: bbd2c42c660b725e9755eb417e40b373f0d4c03138c9b2e210d02cd308bd99cd
-
   #
   # - name: ISPC
   #   buildsystem: simple
@@ -119,16 +75,16 @@ modules:
   #     - cp bin/ispc /app/bin/
   #   sources:
   #     - type: archive
-  #       url: https://github.com/ispc/ispc/releases/download/v1.24.0/ispc-v1.24.0-linux.tar.gz
-  #       sha256: b3e5f71fd93aeaec7634179274b52572e59e700b8ff48c13d0f46708ee61a2c5
+  #       url: https://github.com/ispc/ispc/releases/download/v1.28.2/ispc-v1.28.2-linux.tar.gz
+  #       sha256: 32e611de1252cf1e09a6a13327f5746b8477f99e15ffa4cbd1b422386776688c
   #
   # - name: rkcommon
   #   buildsystem: cmake-ninja
   #   builddir: true
   #   sources:
   #     - type: archive
-  #       url: https://github.com/ospray/rkcommon/archive/refs/tags/v1.13.0.tar.gz
-  #       sha256: 8ae9f911420085ceeca36e1f16d1316a77befbf6bf6de2a186d65440ac66ff1f
+  #       url: https://github.com/ospray/rkcommon/archive/refs/tags/v1.14.0.tar.gz
+  #       sha256: 5aef75afc8d4fccf9e70df4cbdf29a1b28b39ee51b5588b94b83a14c6a166d83
   #
   # - name: Embree
   #   buildsystem: cmake-ninja
@@ -137,9 +93,9 @@ modules:
   #     - -DEMBREE_ISPC_SUPPORT:BOOL=ON
   #   sources:
   #     - type: archive
-  #       url: https://github.com/embree/embree/archive/refs/tags/v3.13.1.tar.gz
-  #       sha256: 00dbd852f19ae2b95f5106dd055ca4b304486436ced0ccf842aec4e38a4df425
-  #
+  #       url: https://github.com/embree/embree/archive/refs/tags/v4.4.0.tar.gz
+  #       sha256: acb517b0ea0f4b442235d5331b69f96192c28da6aca5d5dde0cbe40799638d5c
+  # #
   # - name: glfw
   #   buildsystem: cmake-ninja
   #   config-opts:
@@ -154,53 +110,43 @@ modules:
   #     - type: archive
   #       url: https://github.com/glfw/glfw/releases/download/3.4/glfw-3.4.zip
   #       sha256: b5ec004b2712fd08e8861dc271428f048775200a2df719ccf575143ba749a3e9
-  #
+  # #
   # - name: openvkl
   #   buildsystem: cmake-ninja
   #   builddir: true
   #   sources:
   #     - type: archive
-  #       url: https://github.com/RenderKit/openvkl/archive/refs/tags/v1.2.0.tar.gz
-  #       sha256: dc468c2f0a359aaa946e04a01c2a6634081f7b6ce31b3c212c74bf7b4b0c9ec2
+  #       url: https://github.com/RenderKit/openvkl/archive/refs/tags/v2.0.1.tar.gz
+  #       sha256: 0c7faa9582a93e93767afdb15a6c9c9ba154af7ee83a6b553705797be5f8af62
   #
+  # - name: imgui
+  #   buildsystem: cmake-ninja
+  #   builddir: true
+  #   sources:
+  #     - type: git
+  #       url: https://github.com/ocornut/imgui.git
+  #       tag: v1.92.4
+  #       commit: 9a5d5c45f54b1301ea471622eddede70384243af
   #
   # - name: OSPRay
   #   buildsystem: cmake-ninja
   #   builddir: true
   #   sources:
-  #     - type: archive
-  #       url: https://github.com/RenderKit/ospray/archive/refs/tags/v2.7.0.tar.gz
-  #       sha256: bcaeb221b5dd383d27587ffaca7f75d7e0064f64017a0d73df90862b14b5704b
-
-
-  # - name: OSPRay
-  #   buildsystem: cmake-ninja
-  #   sources:
   #     - type: git
   #       url: https://github.com/RenderKit/ospray.git
-  #       tag: v2.12.0
-  #       commit: 08111292f4671ed8822e7e0374080d75c15538a2
+  #       tag: v3.2.0
+  #       commit: 85af2929937d516997451cbd52d352cf93125ed2
 
-  #   modules:
-  #     - name: ospcommon
-  #       buildsystem: cmake
-  #       builddir: true
-  #       #config-opts:
-  #         #- -DBUILD_TESTING:BOOL=OFF
-  #       sources:
-  #         - type: archive
-  #           url: https://github.com/ospray/ospcommon/archive/refs/tags/v1.3.1.tar.gz
-  #           sha256: 1c043c4a09e68fb7319db61f28a5830fc09f1457b24155a42b5f7c6421bcca73
-  #     - name: openvkl
-  #       buildsystem: simple
-  #       build-commands:
-  #         - cp -rn bin/* /app/bin/
-  #         - cp -rn include/* /app/include/
-  #         - cp -rn lib/* /app/lib/
-  #       sources:
-  #         - type: archive
-  #           url: https://github.com/openvkl/openvkl/releases/download/v0.13.0/openvkl-0.13.0.x86_64.linux.tar.gz
-  #           sha256: 8789334cf354105426151146b4c6de8968694ad781d7c24052a8df50ea4f11e0
+  - name: OSPRay
+    buildsystem: simple
+    build-commands:
+        - cp -rn bin/* /app/bin/
+        - cp -rn lib/* /app/lib/
+        - cp -rn include/* /app/include/
+    sources:
+      - type: archive
+        url: https://github.com/RenderKit/ospray/releases/download/v3.2.0/ospray-3.2.0.x86_64.linux.tar.gz
+        sha256: d8670e69b4762e24f2aa83629af897e8f33ea1c724e17e613942c0ccc1c723be
 
     # When VTK update, update OSPRay, Embree, TBB, ISPC, and OpenImageDenoise too.
     # Needed OSPRay version can be found in vtk/Rendering/RayTracing/CMakeLists.txt
@@ -236,14 +182,8 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_IOXML=YES
       - -DVTK_MODULE_ENABLE_VTK_IONetCDF:STRING=YES
       - -DVTK_MODULE_ENABLE_VTK_IOHDF:STRING=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingAnnotation=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingCore=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingExternal=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingLabel=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingOpenGL2=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingVolumeOpenGL2=YES
+      - -DVTK_GROUP_ENABLE_Rendering=YES
       - -DVTK_MODULE_ENABLE_VTK_TestingCore=YES
-      - -DVTK_MODULE_ENABLE_VTK_RenderingRayTracing:STRING=NO
       - -DVTKOSPRAY_ENABLE_DENOISER=NO
       - -DVTK_SMP_IMPLEMENTATION_TYPE=TBB
       - -DVTK_SMP_ENABLE_SEQUENTIAL=OFF
