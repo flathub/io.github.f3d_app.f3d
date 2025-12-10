@@ -140,9 +140,9 @@ modules:
   - name: OSPRay
     buildsystem: simple
     build-commands:
-        - cp -rn bin/* /app/bin/
-        - cp -rn lib/* /app/lib/
-        - cp -rn include/* /app/include/
+      - cp -rn bin/* /app/bin/
+      - cp -rn lib/* /app/lib/
+      - cp -rn include/* /app/include/
     sources:
       - type: archive
         url: https://github.com/RenderKit/ospray/releases/download/v3.2.0/ospray-3.2.0.x86_64.linux.tar.gz
@@ -294,8 +294,8 @@ modules:
       - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.9.tar.gz
-        sha256: 8c59c10813feee917d262c71af77d6fa3db1acaf7c5fecfd4104167077403955
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.10.tar.gz
+        sha256: 06c9172faf29e9fdebb7be99621ca18b32b474f8e481238a159c87d16b298553
         x-checker-data:
           type: anitya
           project-id: 13980
