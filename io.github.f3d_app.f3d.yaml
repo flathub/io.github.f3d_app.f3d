@@ -266,8 +266,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.2.tar.gz
-        sha256: d1822d9a19c9205d6e8bc533bf897174ddb360ce504680f294170cc1d6319751
+        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.4.tar.gz
+        sha256: afa5487efdd285661afa842c85187cd8c541edad92e8d4aa85be4fca7476eccc
         x-checker-data:
           type: anitya
           project-id: 6988
