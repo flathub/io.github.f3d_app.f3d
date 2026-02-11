@@ -191,8 +191,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.5/VTK-9.5.2.tar.gz
-        sha256: cee64b98d270ff7302daf1ef13458dff5d5ac1ecb45d47723835f7f7d562c989
+        url: https://www.vtk.org/files/release/9.6/VTK-9.6.0.tar.gz
+        sha256: d77d180694faafdc816578b9a53651f6790e799615811bfbb91018661a3bb8f2
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -266,8 +266,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.2.tar.gz
-        sha256: d1822d9a19c9205d6e8bc533bf897174ddb360ce504680f294170cc1d6319751
+        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.4.tar.gz
+        sha256: afa5487efdd285661afa842c85187cd8c541edad92e8d4aa85be4fca7476eccc
         x-checker-data:
           type: anitya
           project-id: 6988
