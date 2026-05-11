@@ -14,7 +14,13 @@ finish-args:
 cleanup:
   - /include
   - /lib/cmake
+  - /man
+  - /share/bash-completion
+  - /share/cmake
   - /share/doc
+  - /share/fish
+  - /share/man
+  - /share/zsh
   - /etc
   - '*.la'
   - '*.a'
