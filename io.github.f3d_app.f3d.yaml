@@ -1,7 +1,7 @@
 app-id: io.github.f3d_app.f3d
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '24.08'
+runtime-version: '25.08'
 command: f3d
 rename-desktop-file: f3d.desktop
 rename-icon: f3d
@@ -14,7 +14,13 @@ finish-args:
 cleanup:
   - /include
   - /lib/cmake
+  - /man
+  - /share/bash-completion
+  - /share/cmake
   - /share/doc
+  - /share/fish
+  - /share/man
+  - /share/zsh
   - /etc
   - '*.la'
   - '*.a'
@@ -64,6 +70,7 @@ modules:
     config-opts:
       - -DTBB_TEST=OFF
       - -DTBB_EXAMPLES=OFF
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/v2021.9.0.tar.gz
@@ -251,13 +258,14 @@ modules:
       - -DBUILD_MODULE_ModelingData=OFF
       - -DBUILD_MODULE_Visualization=OFF
       - -DBUILD_DOC_Overview=OFF
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: git
         url: https://github.com/Open-Cascade-SAS/OCCT
         tag: V7_8_1
         commit: bd2a789f15235755ce4d1a3b07379a2e062fdc2e
       - type: patch
-        path: freetype_use_unsigned_point_and_contour.patch
+        path: patches/freetype_use_unsigned_point_and_contour.patch
 
   - name: assimp
     buildsystem: cmake-ninja
@@ -266,8 +274,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.4.tar.gz
-        sha256: afa5487efdd285661afa842c85187cd8c541edad92e8d4aa85be4fca7476eccc
+        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.5.tar.gz
+        sha256: edf3749559c2b7d1f758ffb66fc5bec62186221e623b7f2e8969f17ee46ecb6f
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -356,9 +364,9 @@ modules:
         url: https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v25.05.01.tar.gz
         sha256: f424e8db26e063a1b005423ee52142e75c38185bbd4b8126ef64173e906dd50f
       # - type: patch
-      #   path: 0001-usd-onetbb.patch
+      #   path: patches/0001-usd-onetbb.patch
       # - type: patch
-      #   path: 0002-install-bin.patch
+      #   path: patches/0002-install-bin.patch
 
   - name: F3D
     buildsystem: cmake-ninja
@@ -391,4 +399,4 @@ modules:
           stable-only: true
           url-template: https://github.com/f3d-app/f3d/archive/refs/tags/v$version.tar.gz
       - type: patch
-        path: fix_metainfo.patch
+        path: patches/fix_metainfo.patch
