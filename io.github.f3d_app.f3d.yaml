@@ -95,7 +95,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Blosc/c-blosc.git
-        tag: v1.21.4
+        tag: v1.21.6
+        commit: 616f4b7343a8479f7e71dd3d7025bd92c9a6bbd0
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -110,6 +111,7 @@ modules:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/openvdb.git
         tag: v13.0.0
+        commit: 7c03e1f084873cd1b3422c7ff7aec6ee681b3b38
   #
   # - name: ISPC
   #   buildsystem: simple
