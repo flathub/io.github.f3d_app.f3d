@@ -27,8 +27,8 @@ modules:
     builddir: true
     sources:
       - type: archive
-        url: https://gitlab.com/libeigen/eigen/-/archive/5.0.0/eigen-5.0.0.tar.bz2
-        sha256: bdca0ec740fb83be21fe038699923f4c589ead9ab904f4058a9c97752e60d50b
+        url: https://gitlab.com/libeigen/eigen/-/archive/5.0.1/eigen-5.0.1.tar.bz2
+        sha256: e4de6b08f33fd8b8985d2f204381408c660bffa6170ac65b68ae1bd3cd575c0a
         x-checker-data:
           type: anitya
           project-id: 13751
@@ -173,9 +173,9 @@ modules:
   - name: OSPRay
     buildsystem: simple
     build-commands:
-        - cp -rn bin/* /app/bin/
-        - cp -rn lib/* /app/lib/
-        - cp -rn include/* /app/include/
+      - cp -rn bin/* /app/bin/
+      - cp -rn lib/* /app/lib/
+      - cp -rn include/* /app/include/
     sources:
       - type: archive
         url: https://github.com/RenderKit/ospray/releases/download/v3.2.0/ospray-3.2.0.x86_64.linux.tar.gz
@@ -226,8 +226,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.5/VTK-9.5.2.tar.gz
-        sha256: cee64b98d270ff7302daf1ef13458dff5d5ac1ecb45d47723835f7f7d562c989
+        url: https://www.vtk.org/files/release/9.6/VTK-9.6.1.tar.gz
+        sha256: 47ca9af899165a33b935533046acce7c0aa3c007f0b57880665bb89d9986543f
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -301,8 +301,8 @@ modules:
       - -DASSIMP_BUILD_TESTS:BOOL=NO
     sources:
       - type: archive
-        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.2.tar.gz
-        sha256: d1822d9a19c9205d6e8bc533bf897174ddb360ce504680f294170cc1d6319751
+        url: https://github.com/assimp/assimp/archive/refs/tags/v6.0.4.tar.gz
+        sha256: afa5487efdd285661afa842c85187cd8c541edad92e8d4aa85be4fca7476eccc
         x-checker-data:
           type: anitya
           project-id: 6988
@@ -329,8 +329,8 @@ modules:
       - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.9.tar.gz
-        sha256: 8c59c10813feee917d262c71af77d6fa3db1acaf7c5fecfd4104167077403955
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.11.tar.gz
+        sha256: ab299bb4b1894a6675c73fa29940522b54c81a91b1d691ca3470d86b7345ffce
         x-checker-data:
           type: anitya
           project-id: 13980
@@ -407,8 +407,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v3.3.0.tar.gz
-        sha256: 5505cd6da9991c1dc40695c3f886a84240c191a5572f314ffafe5f9a4cce31b9
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v3.5.0.tar.gz
+        sha256: 033845b5d49af3ae60fcc3fe85d82c841d990d3534638a4472123f84b3e82795
         x-checker-data:
           type: anitya
           project-id: 224911
