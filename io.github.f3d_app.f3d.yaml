@@ -75,6 +75,43 @@ modules:
       - type: archive
         url: https://github.com/oneapi-src/oneTBB/archive/v2021.9.0.tar.gz
         sha256: 1ce48f34dada7837f510735ff1172f6e2c261b09460e3bf773b49791d247d24e
+
+  - name: Boost
+    buildsystem: simple
+    sources:
+      - type: archive
+        url: https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.gz
+        sha256: c0685b68dd44cc46574cce86c4e17c0f611b15e195be9848dfd0769a0a207628
+    build-commands:
+      - ./bootstrap.sh --prefix=/app --with-libraries=iostreams,filesystem,system,date_time,regex,program_options,python
+      - ./b2 headers
+      - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
+
+  - name: blosc
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
+    sources:
+      - type: git
+        url: https://github.com/Blosc/c-blosc.git
+        tag: v1.21.6
+        commit: 616f4b7343a8479f7e71dd3d7025bd92c9a6bbd0
+        x-checker-data:
+          type: git
+          tag-pattern: ^(v[\d.]+)$
+
+  - name: openvdb
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DOPENVDB_CORE_STATIC:BOOL=OFF
+      - -DOPENVDB_BUILD_BINARIES:BOOL=OFF
+    sources:
+      - type: git
+        url: https://github.com/AcademySoftwareFoundation/openvdb.git
+        tag: v13.0.0
+        commit: 7c03e1f084873cd1b3422c7ff7aec6ee681b3b38
   #
   # - name: ISPC
   #   buildsystem: simple
@@ -163,6 +200,7 @@ modules:
     builddir: true
     config-opts:
       - -DCMAKE_INSTALL_PREFIX=/app
+      - -DCMAKE_MODULE_PATH=/app/lib/cmake/OpenVDB
       - -DBUILD_SHARED_LIBS=ON
       - -DOpenGL_GL_PREFERENCE=GLVND
       - -DVTK_ENABLE_LOGGING=OFF
@@ -189,6 +227,7 @@ modules:
       - -DVTK_MODULE_ENABLE_VTK_IOXML=YES
       - -DVTK_MODULE_ENABLE_VTK_IONetCDF:STRING=YES
       - -DVTK_MODULE_ENABLE_VTK_IOHDF:STRING=YES
+      - -DVTK_MODULE_ENABLE_VTK_IOOpenVDB:STRING=YES
       - -DVTK_GROUP_ENABLE_Rendering=YES
       - -DVTK_MODULE_ENABLE_VTK_TestingCore=YES
       - -DVTKOSPRAY_ENABLE_DENOISER=NO
@@ -324,17 +363,6 @@ modules:
         url: https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.4.tar.gz
         sha256: 81e6518f2c4656fdeaf18a018f135e96a96e7f66dbe1c1f05860dd94772176cc
 
-  - name: Boost
-    buildsystem: simple
-    sources:
-      - type: archive
-        url: https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.gz
-        sha256: c0685b68dd44cc46574cce86c4e17c0f611b15e195be9848dfd0769a0a207628
-    build-commands:
-      - ./bootstrap.sh --prefix=/app --with-libraries=iostreams,filesystem,system,date_time,regex,program_options,python
-      - ./b2 headers
-      - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
-
   - name: OpenSubdiv
     buildsystem: cmake-ninja
     sources:
@@ -383,6 +411,7 @@ modules:
       - -DF3D_PLUGIN_BUILD_OCCT:BOOL=ON
       - -DF3D_LINUX_APPLICATION_LINK_FILESYSTEM:BOOL=OFF
       - -DF3D_PLUGIN_BUILD_USD:BOOL=ON
+      - -DF3D_PLUGIN_BUILD_VDB:BOOL=ON
     post-install:
       - cmake --install . --component mimetypes
       - cmake --install . --component sdk
