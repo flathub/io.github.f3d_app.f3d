@@ -237,8 +237,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.6/VTK-9.6.1.tar.gz
-        sha256: 47ca9af899165a33b935533046acce7c0aa3c007f0b57880665bb89d9986543f
+        url: https://www.vtk.org/files/release/9.6/VTK-9.6.2.tar.gz
+        sha256: aed12cec12a9609179bf66329070266627ca64244a10856a452b2a17ffb04a1d
         x-checker-data:
           type: anitya
           project-id: 15084
