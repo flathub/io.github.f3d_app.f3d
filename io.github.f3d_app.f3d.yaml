@@ -237,8 +237,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.6/VTK-9.6.2.tar.gz
-        sha256: aed12cec12a9609179bf66329070266627ca64244a10856a452b2a17ffb04a1d
+        url: https://www.vtk.org/files/release/9.7/VTK-9.7.1.tar.gz
+        sha256: cae04fd355004cb916a409db79d53a208f1221e975aeacc7540ee67b148ee91a
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -328,11 +328,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/AcademySoftwareFoundation/Imath.git
-        tag: v3.2.2
+        tag: v3.2.3
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
-        commit: 1e480d11cb98b032a2dece9b9a8730512effc7f6
+        commit: 5f27ba266d3ea1565e912570c30b5eafc89959f1
 
   - name: Alembic
     buildsystem: cmake-ninja
@@ -341,8 +341,8 @@ modules:
       - -DUSE_HDF5:BOOL=ON
     sources:
       - type: archive
-        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.11.tar.gz
-        sha256: ab299bb4b1894a6675c73fa29940522b54c81a91b1d691ca3470d86b7345ffce
+        url: https://github.com/alembic/alembic/archive/refs/tags/1.8.12.tar.gz
+        sha256: b6d916c40446e8c502c84273092ab3d98f3f7f6094f8a2b8203d23e2f1d2a4a0
         x-checker-data:
           type: anitya
           project-id: 13980
