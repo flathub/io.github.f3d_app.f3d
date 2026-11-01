@@ -83,7 +83,8 @@ modules:
         url: https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.gz
         sha256: c0685b68dd44cc46574cce86c4e17c0f611b15e195be9848dfd0769a0a207628
     build-commands:
-      - ./bootstrap.sh --prefix=/app --with-libraries=iostreams,filesystem,system,date_time,regex,program_options,python
+      - ./bootstrap.sh --prefix=/app 
+        --with-libraries=iostreams,filesystem,system,date_time,regex,program_options,python
       - ./b2 headers
       - ./b2 -j$FLATPAK_BUILDER_N_JOBS install variant=release cxxstd=17 --layout=system
 
@@ -95,8 +96,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Blosc/c-blosc.git
-        tag: v1.21.6
-        commit: 616f4b7343a8479f7e71dd3d7025bd92c9a6bbd0
+        tag: v1.21.7
+        commit: 34c47e36ac3edcb1954d0eab9c38d7efd8816e7c
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -189,7 +190,8 @@ modules:
       - cp -rn include/* /app/include/
     sources:
       - type: archive
-        url: https://github.com/RenderKit/ospray/releases/download/v3.2.0/ospray-3.2.0.x86_64.linux.tar.gz
+        url: 
+          https://github.com/RenderKit/ospray/releases/download/v3.2.0/ospray-3.2.0.x86_64.linux.tar.gz
         sha256: d8670e69b4762e24f2aa83629af897e8f33ea1c724e17e613942c0ccc1c723be
 
     # When VTK update, update OSPRay, Embree, TBB, ISPC, and OpenImageDenoise too.
@@ -353,21 +355,24 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/ebiggers/libdeflate/releases/download/v1.20/libdeflate-1.20.tar.gz
+        url: 
+          https://github.com/ebiggers/libdeflate/releases/download/v1.20/libdeflate-1.20.tar.gz
         sha256: c52cf0239fd644d71c9e88613dd7431a5306ebee1280c5791c71ca264869250a
 
   - name: openexr
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.4.tar.gz
+        url: 
+          https://github.com/AcademySoftwareFoundation/openexr/archive/refs/tags/v3.2.4.tar.gz
         sha256: 81e6518f2c4656fdeaf18a018f135e96a96e7f66dbe1c1f05860dd94772176cc
 
   - name: OpenSubdiv
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_6_0.tar.gz
+        url: 
+          https://github.com/PixarAnimationStudios/OpenSubdiv/archive/refs/tags/v3_6_0.tar.gz
         sha256: bebfd61ab6657a4f4ff27845fb66a167d00395783bfbd253254d87447ed1d879
 
   - name: openUSD
@@ -389,7 +394,8 @@ modules:
       - -DTBB_LIBRARIES=/app/lib/libtbb.so
     sources:
       - type: archive
-        url: https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v25.05.01.tar.gz
+        url: 
+          https://github.com/PixarAnimationStudios/OpenUSD/archive/refs/tags/v25.05.01.tar.gz
         sha256: f424e8db26e063a1b005423ee52142e75c38185bbd4b8126ef64173e906dd50f
       # - type: patch
       #   path: patches/0001-usd-onetbb.patch
@@ -420,8 +426,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v4.0.0.tar.gz
-        sha256: 3edb481a5ab7bb6689fc3f37689895465eceecf1052bc30e4f86ad14f4ee1d71
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v4.0.1.tar.gz
+        sha256: 336dd26581a0a9b0bf9e6e9c900e3f103cf6df58971cfd5bbaf6fa93cd285560
         x-checker-data:
           type: anitya
           project-id: 224911
