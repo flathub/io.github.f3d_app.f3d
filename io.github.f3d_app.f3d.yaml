@@ -59,7 +59,7 @@ modules:
           type: anitya
           project-id: 1303
           stable-only: true
-          url-template: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-$version.tar.gz
+          url-template: https://github.com/HDFGroup/hdf5/archive/refs/tags/$version.tar.gz
 
         # OSPRay 1.8.0 need old version of TBB,
         # Could not build from source with make for some reason.
