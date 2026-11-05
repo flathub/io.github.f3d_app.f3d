@@ -53,8 +53,8 @@ modules:
       - /share/hdf5_examples
     sources:
       - type: archive
-        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5-1.14.6.tar.gz
-        sha256: 6df53f84376d87e96eeb255703e3b1a348fc08a48e06e37053f1bfb379970189
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/2.2.0.tar.gz
+        sha256: 5b8d75125ae7b4fef55d3b39e8d3dbfd238cdf63b6518afd67fa69ac80f06542
         x-checker-data:
           type: anitya
           project-id: 1303
@@ -95,8 +95,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Blosc/c-blosc.git
-        tag: v1.21.6
-        commit: 616f4b7343a8479f7e71dd3d7025bd92c9a6bbd0
+        tag: v1.21.7
+        commit: 34c47e36ac3edcb1954d0eab9c38d7efd8816e7c
         x-checker-data:
           type: git
           tag-pattern: ^(v[\d.]+)$
@@ -237,8 +237,8 @@ modules:
       - -DVTK_SMP_ENABLE_TBB=ON
     sources:
       - type: archive
-        url: https://www.vtk.org/files/release/9.7/VTK-9.7.1.tar.gz
-        sha256: cae04fd355004cb916a409db79d53a208f1221e975aeacc7540ee67b148ee91a
+        url: https://www.vtk.org/files/release/9.7/VTK-9.7.2.tar.gz
+        sha256: fecef55df5caec6298ce190024060a90ce3bb515033c0f18968b9ab5c12bf796
         x-checker-data:
           type: anitya
           project-id: 15084
@@ -420,8 +420,8 @@ modules:
       - mv /app/share/metainfo/app.f3d.F3D.metainfo.xml /app/share/metainfo/$FLATPAK_ID.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/f3d-app/f3d/archive/refs/tags/v4.0.0.tar.gz
-        sha256: 3edb481a5ab7bb6689fc3f37689895465eceecf1052bc30e4f86ad14f4ee1d71
+        url: https://github.com/f3d-app/f3d/archive/refs/tags/v4.0.1.tar.gz
+        sha256: 336dd26581a0a9b0bf9e6e9c900e3f103cf6df58971cfd5bbaf6fa93cd285560
         x-checker-data:
           type: anitya
           project-id: 224911
